@@ -8,6 +8,10 @@
     html {
         font-family: 'Josefin Sans', system-ui, sans-serif;
       }
+      h1 {
+        font-family: 'Tenor Sans', system-ui, sans-serif;
+
+      }
    :root {
 
     --color-primary: #112B3C;
