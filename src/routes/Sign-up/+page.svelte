@@ -77,7 +77,7 @@
 										src={Visible}
 										alt="Password Visibility Toggle"
 										class="absolute top-1/3 right-3 transform -translate-y-1/2 cursor-pointer toggle-password"
-										data-target="password"
+										id="eyeicon"
 									/>
 								</div>
 							</div>
@@ -97,7 +97,7 @@
 										placeholder="Confirm Password"
 									/>
 									<img
-										src={Visible}
+										src="/src/lib/assets/images/visible.svg"
 										alt="Password Visibility Toggle"
 										class="absolute top-1/3 right-3 transform -translate-y-1/2 cursor-pointer toggle-password"
 										id="c_eyeicon"
@@ -141,7 +141,7 @@
 						<div class="text-center">
 							<a
 								class="inline-block text-sm text-primary align-baseline hover:text-primary-hover font-joseph"
-								href="./index.html"
+								href="./Sign-in/"
 							>
 								Already have an account? Login!
 							</a>
@@ -152,27 +152,37 @@
 		</div>
 	</div>
 
+
 	<script>
-				
-		let eyeicon = document.getElementById("eyeicon");  
-		let eyeicon = document.getElementById("c_eyeicon");
+		let unvisibleButton = '/src/lib/assets/images/unvisible.svg';
+		let visibleButton = '/src/lib/assets/images/visible.svg';
+
+		let eyeicon = document.getElementById("eyeicon");
 		let password = document.getElementById("password");
-		let conf_password = document.getElementById("c_password");
-		// let unvisibleButton = {Unvisible};
-	
-		eyeicon.onclick = function(){
-	
-			if(password.type === "password"){
+
+		eyeicon.onclick = function () {
+			if (password.type === "password") {
 				password.type = "text";
-				// eyeicon.src = unvisibleButton; 
-	
-			}else{
+				eyeicon.src = unvisibleButton;
+			} else {
 				password.type = "password";
+				eyeicon.src = visibleButton;
 			}
-	
 		}
 
+		let c_eyeicon = document.getElementById("c_eyeicon");
+		let c_password = document.getElementById("c_password");
 
-	
+		c_eyeicon.onclick = function () {
+			if (c_password.type === "password") {
+				c_password.type = "text";
+				c_eyeicon.src = unvisibleButton;
+			} else {
+				c_password.type = "password";
+				c_eyeicon.src = visibleButton;
+			}
+		}
 	</script>
+
+
 </section>
