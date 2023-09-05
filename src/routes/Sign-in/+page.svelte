@@ -12,7 +12,7 @@
 			
 			<!-- Container -->
 			<div class="container mx-auto ">
-				<div class="flex justify-center px-6 my-12 h-[570px]">
+				<div class="flex justify-center px-6 my-12  h-[570px]">
 					<!-- Row -->
 					<div class="w-full h-full xl:w-3/4 lg:w-11/12 flex">
 						<!-- Col -->

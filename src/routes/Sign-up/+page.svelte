@@ -1,11 +1,7 @@
 <!-- creat componants in svelte -->
 
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<title>Title of the document</title>
-	</head>
-	<body class="bg-primary">
+
+	<section class="bg-primary">
 		<section class="font-mono mx-auto">
 			<!-- Container -->
 			<div class="container mx-auto">
@@ -141,5 +137,5 @@
 				</div>
 			</div>
 		</section>
-	</body>
-</html>
+	</section>
+
