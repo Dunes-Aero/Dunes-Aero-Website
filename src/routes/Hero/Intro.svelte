@@ -1,5 +1,5 @@
 <script>
-	import Button from "../../lib/assets/images/components/Button.svelte";
+	import Button from "$lib/components/Button.svelte";
 
 </script>
 
@@ -13,7 +13,7 @@
 			costs, and optimize workflows.
 		</h5>
 		<div class="mx-auto mb-5 text-center">
-			<Button color=tertiary >Get in Touch!</Button>
+			<Button color='tertiary' >Get in Touch!</Button>
 		</div>
 		<p class="text-secondary font-light mx-auto text-center md:w-1/6 w-2/5">
 			Step into the future of business with Dunes Aero.

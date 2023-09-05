@@ -1,7 +1,9 @@
-<h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
-  
+<script>
+  import Hero from './Hero/+page.svelte'
+  import About from './About/+page.svelte'
+</script>  
+<Hero/>
+<About/>
   <style lang="postcss">
     :global(html) {
       background-color: theme(colors.gray.100);

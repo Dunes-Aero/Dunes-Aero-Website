@@ -1,5 +1,5 @@
 <script>
-    import Button from '../../lib/assets/images/components/Button.svelte';
+    import Button from '$lib/components/Button.svelte';
 	import logo from '$lib/assets/images/logo-light.png';
 	import menu from '$lib/assets/images/menu.svg';
 	import close from '$lib/assets/images/close.svg';

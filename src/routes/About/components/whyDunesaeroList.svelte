@@ -1,14 +1,14 @@
 <!-- Problem: Fix the item position (div -> item), The logo goes to the top when there are two lines on the text -->
 
 <script>
-	import Local from '../../../images/local icon.svg';
-	import Advanced from '../../../images/advanced icon.svg';
-	import Maintenance from '../../../images/maintenance icon.svg';
-	import Train from '../../../images/train icon.svg';
-	import Customize from '../../../images/customize icon.svg';
-	import Package from '../../../images/package icon.svg';
-	import Regularity from '../../../images/regularity icon.svg';
-	import Experts from '../../../images/experts icon.svg';
+	import Local from '$lib/assets/images/local icon.svg';
+	import Advanced from '$lib/assets/images/advanced icon.svg';
+	import Maintenance from '$lib/assets/images/maintenance icon.svg';
+	import Train from '$lib/assets/images/train icon.svg';
+	import Customize from '$lib/assets/images/customize icon.svg';
+	import Package from '$lib/assets/images/package icon.svg';
+	import Regularity from '$lib/assets/images/regularity icon.svg';
+	import Experts from '$lib/assets/images/experts icon.svg';
 </script>
 
 <div class="container">
