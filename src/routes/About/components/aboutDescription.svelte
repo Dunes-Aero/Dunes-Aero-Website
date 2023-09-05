@@ -13,7 +13,7 @@
 		color: #000000;
 		margin: 40px 150px 0px;
 		text-align: center;
-		font-size: 28px;
+		font-size: 24px;
 	}
 	@media screen and (max-width: 768px) {
 		.text-about {
