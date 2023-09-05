@@ -12,7 +12,7 @@
 {/if}
 
 <style>
-	@import '//dunes-aero-website/src/app.css';
+	/* @import '//dunes-aero-website/src/app.css'; */
 
 	.title {
 		font-size: 40px;
