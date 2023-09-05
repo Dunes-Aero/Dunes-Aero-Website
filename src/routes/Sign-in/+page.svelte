@@ -1,15 +1,18 @@
 <!-- creat componants in svelte -->
+<script>
+	import Visible from '$lib/assets/images/visible.png';
+	import Advanced from '$lib/assets/images/advanced icon.svg';
+</script>
 
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<title>Title of the document</title>
-	</head>
-	<body class="bg-primary">
-		<section class="font-mono mx-auto">
+
+
+	
+	<section class="bg-primary">
+		<section class="font-mono mx-auto ">
+			
 			<!-- Container -->
 			<div class="container mx-auto ">
-				<div class="flex justify-center px-6 my-12">
+				<div class="flex justify-center px-6 my-12 h-[570px]">
 					<!-- Row -->
 					<div class="w-full h-full xl:w-3/4 lg:w-11/12 flex">
 						<!-- Col -->
@@ -71,12 +74,23 @@
 										<!-- if you wanted to make the input holder smaller change the inlineblock to bolck and edit the container to be justify-center instead of justify   -->
 											Password
 										</label>
-										<input
-											class="w-full px-3 py-2 mb-3 text-sm leading-tight font-joseph font-semibold text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-											id="password"
-											type="password"
-											placeholder="Password"
-										/>
+										<div class="flex items-center relative ">
+											<input
+												class="w-full px-3 py-2 mb-3 text-sm leading-tight font-joseph font-semibold text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+												id="password"
+												type="password"
+												placeholder="Password"
+											/>
+											<img
+												src={Visible}
+												alt="Password Visibility Toggle"
+												class="absolute top-1/2 right-3 transform -translate-y-1/2 cursor-pointer"
+											/>
+										</div>
+											
+										
+
+										
 									</div>
 									
 								
@@ -128,5 +142,5 @@
 				</div>
 			</div>
 		</section>
-	</body>
-</html>
+	</section>
+
