@@ -71,16 +71,9 @@
 						<Button
 							color="secondary"
 							on:navigate={() => {
-								goto('/About', { replaceState: true });
+								goto('/Sign-in', { replaceState: true });
 							}}
 							outlined={true}>Sign In</Button
-						>
-					</li>
-					<li>
-						<button
-							on:click={() => {
-								goto('/Sign-in');
-							}}>we</button
 						>
 					</li>
 				</ul>
