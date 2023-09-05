@@ -1,4 +1,6 @@
 <script>
+    import { createEventDispatcher } from 'svelte';
+    const dispatch = createEventDispatcher();
     export let color= 'primary'
     export let outlined= false
     export let type='button'
@@ -7,5 +9,6 @@
 </script>
 
 <button
+on:click={()=>{  dispatch("navigate");}}
 type={type}
 class={`${attributes}  rounded-lg font-medium text-md px-5 py-2 mr-2 mb-2 focus:outline-none`}><slot/></button>

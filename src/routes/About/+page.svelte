@@ -4,7 +4,7 @@
 	import Why from './components/whyDunesaeroList.svelte';
 </script>
 
-<div class="main-page">
+<section id='about' class="main-page">
 	<div class="about">
 		<Title pageTitle="About Us" elementHTML="h1" />
 		<Desc />
@@ -13,11 +13,11 @@
 		<Title pageTitle="But, Why Dunes Aero?" elementHTML="p"/>
         <Why />
 	</div>
-</div>
+</section>
 
 <style>
 	@import './global.css';
-	@import '../../app.css';
+
 
 	.about {
 		background-color: var(--color-secondary);

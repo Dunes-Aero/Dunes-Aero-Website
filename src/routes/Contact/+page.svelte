@@ -4,7 +4,7 @@
 </script>
 
 <section id="contact" class="h-screen flex items-center justify-center bg-primary">
-	
+	<a href="/Hero">about</a>
 		<ContactInfo/>
 		<ContactForm />
 
