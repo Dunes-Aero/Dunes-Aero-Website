@@ -1,4 +1,5 @@
 <script>
+    import Button from '../../lib/assets/images/components/Button.svelte';
 	import logo from '$lib/assets/images/logo-light.png';
 	import menu from '$lib/assets/images/menu.svg';
 	import close from '$lib/assets/images/close.svg';
@@ -9,7 +10,7 @@
 
 <svelte:window bind:innerWidth={screenWidth} />
 
-<nav id="navbar" class="w-full flex items-center py-5 fixed top-0 z-40 mx-auto self-center">
+<nav id="navbar" class="w-full flex items-center py-5 fixed top-0 z-40 mx-auto self-center  bg-black/20">
 	<div class="w-full flex justify-between items-center max-w-7xl mx-auto border-b">
 		<div><img class="w-16 h-16 object-contain" src={logo} alt="logo" /></div>
 
@@ -27,18 +28,11 @@
 			<div class="float-right">
 				<ul class="list-none hidden lg:flex flex-row gap-6 py-5 float-right">
 					<li>
-						<button
-							type="button"
-							class="text-white font-light bg-tertiary hover:bg-tertiary-hover focus:ring-1 focus:ring-tertiary-hover rounded-lg text-md px-5 py-2 mr-2 mb-2 focus:outline-none"
-							>Sign Up</button
-						>
+						<Button color='tertiary' outlined={false}>Sign Up</Button>
 					</li>
 					<li>
-						<button
-							type="button"
-							class="text-white font-light focus:ring-4 focus:ring-white rounded-lg text-md px-5 py-2 mr-2 mb-2 border border-1"
-							>Sign In</button
-						>
+                        <Button color='secondary' outlined={true}>Sign In</Button>
+					
 					</li>
 				</ul>
 			</div>
