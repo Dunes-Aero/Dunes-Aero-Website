@@ -1,3 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@200;300;400;500;600;700&family=Tenor+Sans&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base{
+    html {
+        font-family: 'Josefin Sans', system-ui, sans-serif;
+      }
+      h1 {
+        font-family: 'Tenor Sans', system-ui, sans-serif;
+      }
+   :root {
+    
+
+    --color-primary: #112B3C;
+    --color-primary-hover: #0b1b25;
+    --color-secondary: #E9E2D1;
+    --color-secondary-hover: #d6c8a7fb;
+    --color-tertiary: #2E2949;
+    --color-tertiary-hover: #1f1b33;
+   }
+   /* @font-face {
+    font-family: 'Tenor Sans';
+    src:  url("https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@200;300;400;500;600;700&family=Tenor+Sans&display=swap");
+    font-weight: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Josefin Sans';
+ src:url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Noto+Sans+Arabic:wght@200;300;400;500;600;700&family=Tenor+Sans&display=swap  ");
+    font-weight: normal;
+    font-display: swap;
+} */
+
+
+}

@@ -1,5 +1,19 @@
-<script></script>
+<script>
+	import Navbar from './Navbar.svelte';
+	import Intro from './Intro.svelte';
+</script>
 
-<h1>Hi this is hero</h1>
+<section
+	id="hero"
+	class="relative w-full h-screen mx-auto bg-hero bg-no-repeat bg-cover bg-center items-center flex"
+>
+	<Navbar />
+	<Intro />
+</section>
 
-<style></style>
+<style>
+	.bg-hero {
+		background-image: url('./src/lib/assets/images/hero-bg.png');
+		background-color: black;
+	}
+</style>
