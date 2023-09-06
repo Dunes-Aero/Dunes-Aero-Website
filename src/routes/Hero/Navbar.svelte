@@ -60,7 +60,7 @@
 				<ul class="list-none hidden lg:flex flex-row gap-6 py-5 float-right">
 					<li>
 						<Button
-							color="tertiary"
+							color=tertiary
 							on:navigate={() => {
 								goto('/Sign-up', { replaceState: true });
 							}}

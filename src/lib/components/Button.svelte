@@ -7,8 +7,7 @@
 	let attributes = outlined
 		? `text-${color} border border-1 focus:ring-4 focus:ring-${color}`
 		: `text-${
-				(color === 'primary') | (color === 'tertiary') ? 'white' : 'primary'
-		  } focus:ring-1  bg-${color} hover:bg-${color}-hover focus:ring-${color}-hover`;
+				(color === 'primary') || (color === 'tertiary') ? 'white' : 'primary'} focus:ring-1  bg-${color} hover:bg-${color}-hover focus:ring-${color}-hover`;
 </script>
 
 <button
