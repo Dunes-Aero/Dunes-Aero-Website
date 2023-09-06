@@ -11,7 +11,7 @@
         <!-- Text on the right -->
         <div class="mr-4">
             <!-- Your text content here -->
-            <p class="text-lg">{textItem}</p>
+            <p class="lg:text-lg text-item">{textItem}</p>
             <!-- Additional text or elements if needed -->
         </div>
 			<!-- Icon (assuming you want to set a fixed width and height) -->
@@ -23,7 +23,7 @@
             <img src={ProcessIcon} alt="" class="w-12 h-12" />
 			<div class="ml-4">
 				<!-- Your text content here -->
-				<p class="text-lg">{textItem}</p>
+				<p class="text-lg text-item">{textItem}</p>
 				<!-- Additional text or elements if needed -->
 			</div>
 		{/if}
@@ -35,4 +35,9 @@
         background-color: var(--color-primary);
         color: var(--color-secondary);
     }
+	@media (max-width: 768px) {
+		.text-item {
+			font-size: small;
+		}
+	}
 </style>
