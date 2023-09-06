@@ -1,23 +1,16 @@
 <!-- creat componants in svelte -->
-<script>
-	import Visible from '$lib/assets/images/visible.png';
-	import Advanced from '$lib/assets/images/advanced icon.svg';
-</script>
 
 
 
-	
-	<section class="bg-primary">
-		<section class="font-mono mx-auto ">
-			
+		<section class="font-mono mx-auto bg-primary h-screen my-auto flex items-center" >
 			<!-- Container -->
-			<div class="container mx-auto ">
-				<div class="flex justify-center px-6 my-12  h-[570px]">
+			<div class="container mx-auto">
+				<div class="flex justify-center px-6 h-[570px]">
 					<!-- Row -->
 					<div class="w-full h-full xl:w-3/4 lg:w-11/12 flex">
 						<!-- Col -->
 						<div
-							class="w-full h-auto bg-gray-400 hidden lg:block lg:w-5/12 bg-cover rounded-l-lg"
+							class="w-full h-auto hidden lg:block lg:w-5/12 bg-cover rounded-l-lg"
 							style="background-image: url('/src/lib/assets/images/Signin.png')"
 						/>
 						<!-- Col -->
@@ -66,7 +59,7 @@
 								</div>
 								
 									<!-- delete this to make the password place longer   -->
-									<div class="mb-4 md:mr-2 md:mb-0">
+									<div class="mb-4 md:mr-2 md:mb-0 ">
 										<label
 											class="inline-block mb-2 text-sm font-joseph font-semibold text-gray-700"
 											for="password"
@@ -74,7 +67,9 @@
 										<!-- if you wanted to make the input holder smaller change the inlineblock to bolck and edit the container to be justify-center instead of justify   -->
 											Password
 										</label>
-										<div class="flex items-center relative ">
+
+										
+										 <div class="relative ">
 											<input
 												class="w-full px-3 py-2 mb-3 text-sm leading-tight font-joseph font-semibold text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
 												id="password"
@@ -82,9 +77,10 @@
 												placeholder="Password"
 											/>
 											<img
-												src={Visible}
+												src='src/lib/assets/images/visible.svg'
 												alt="Password Visibility Toggle"
-												class="absolute top-1/2 right-3 transform -translate-y-1/2 cursor-pointer"
+												class="absolute top-1/3 right-3 transform -translate-y-1/2 cursor-pointer "
+												id="eyeicon"
 											/>
 										</div>
 											
@@ -131,16 +127,39 @@
 								<div class="text-center">
 									<a
 										class="inline-block text-sm text-primary align-baseline hover:text-primary-hover font-joseph"
-										href="./index.html"
+										href="./Sign-up"
 									>
-										Already have an account? Login!
+										Don't have an Account? Join us Now!
 									</a>
 								</div>
 							</form>
 						</div>
 					</div>
 				</div>
+
+				
 			</div>
+
+			<script>
+				let eyeicon = document.getElementById("eyeicon");
+				let password = document.getElementById("password");
+				let unvisibleButton = '/src/lib/assets/images/unvisible.svg';
+				let visibleButton = '/src/lib/assets/images/visible.svg';
+			  
+				eyeicon.onclick = function () {
+				  if (password.type === "password") {
+					password.type = "text";
+					eyeicon.src = unvisibleButton;
+				  } else {
+					password.type = "password";
+					eyeicon.src = visibleButton;
+				  }
+				}
+			  </script>
+			  
+
+			
+			
 		</section>
-	</section>
+	
 
