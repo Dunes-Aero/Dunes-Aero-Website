@@ -5,26 +5,18 @@
 </script>
 
 <div class="container mx-auto flex items-center">
-	<!-- Background div for the icon with text on the right -->
 	<div class="item-back p-4 rounded-lg flex items-center">
 		{#if isRightLeft == "yes"}
-        <!-- Text on the right -->
         <div class="mr-4">
-            <!-- Your text content here -->
             <p class="lg:text-lg text-item">{textItem}</p>
-            <!-- Additional text or elements if needed -->
         </div>
-			<!-- Icon (assuming you want to set a fixed width and height) -->
 			<img src={ProcessIcon} alt="" class="w-12 h-12" />
 
 		{:else}
-			<!-- Text on the left -->
-            <!-- Icon (assuming you want to set a fixed width and height) -->
+
             <img src={ProcessIcon} alt="" class="w-12 h-12" />
 			<div class="ml-4">
-				<!-- Your text content here -->
 				<p class="text-lg text-item">{textItem}</p>
-				<!-- Additional text or elements if needed -->
 			</div>
 		{/if}
 	</div>

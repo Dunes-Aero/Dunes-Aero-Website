@@ -30,20 +30,20 @@
 		.container {
 			display: flex;
 			flex-direction: column;
-			align-items: center; /* Center items vertically */
-			justify-content: center; /* Center items horizontally */
+			align-items: center; 
+			justify-content: center; 
 		}
 
 		.item-one {
-			text-align: center; /* Center text within items */
+			text-align: center; 
 		}
 
 		.item-two {
-			right: 23%; /* Adjust this if needed */
+			right: 23%; 
 		}
 
 		.item-three {
-			left: 16%; /* Adjust this if needed */
+			left: 16%; 
 		}
 	}
 
