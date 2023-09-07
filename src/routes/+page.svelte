@@ -5,8 +5,13 @@
 	import Contact from './Contact/+page.svelte';
 	import Partners from './Partners/+page.svelte';
 	import Solutions from './Solutions/+page.svelte';
-</script>
 
+
+	export let data=''
+
+	$:msg = JSON.stringify(data)
+</script>
+<h1 class="text-wjite text-3xl">{msg}</h1>
 <div class="main">
 
   <Hero />
