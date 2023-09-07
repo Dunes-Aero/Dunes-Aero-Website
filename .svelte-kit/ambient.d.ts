@@ -46,13 +46,16 @@ declare module '$env/static/private' {
 	export const CUDA_PATH_V12_1: string;
 	export const DriverData: string;
 	export const EDITOR: string;
+	export const EFC_10960: string;
+	export const FPS_BROWSER_APP_PROFILE_STRING: string;
+	export const FPS_BROWSER_USER_PROFILE_STRING: string;
 	export const GIT_ASKPASS: string;
 	export const HOME: string;
 	export const HOMEDRIVE: string;
 	export const HOMEPATH: string;
 	export const INIT_CWD: string;
-	export const LANG: string;
 	export const LOCALAPPDATA: string;
+	export const LOCAL_GIT_DIRECTORY: string;
 	export const LOGONSERVER: string;
 	export const NODE: string;
 	export const NODE_ENV: string;
@@ -88,10 +91,7 @@ declare module '$env/static/private' {
 	export const NVM_SYMLINK: string;
 	export const NVTOOLSEXT_PATH: string;
 	export const OneDrive: string;
-	export const OPENCL_BIN: string;
-	export const OPENCL_INC: string;
-	export const OPENCL_LIB32: string;
-	export const OPENCL_LIB64: string;
+	export const OneDriveConsumer: string;
 	export const ORIGINAL_XDG_CURRENT_DESKTOP: string;
 	export const OS: string;
 	export const Path: string;
@@ -112,7 +112,6 @@ declare module '$env/static/private' {
 	export const TEMP: string;
 	export const TERM_PROGRAM: string;
 	export const TERM_PROGRAM_VERSION: string;
-	export const TESSDATA_PREFIX: string;
 	export const TMP: string;
 	export const USERDOMAIN: string;
 	export const USERDOMAIN_ROAMINGPROFILE: string;
@@ -123,6 +122,7 @@ declare module '$env/static/private' {
 	export const VSCODE_GIT_ASKPASS_NODE: string;
 	export const VSCODE_GIT_IPC_HANDLE: string;
 	export const VSCODE_INJECTION: string;
+	export const VSCODE_NONCE: string;
 	export const windir: string;
 }
 
@@ -173,13 +173,16 @@ declare module '$env/dynamic/private' {
 		CUDA_PATH_V12_1: string;
 		DriverData: string;
 		EDITOR: string;
+		EFC_10960: string;
 		GIT_ASKPASS: string;
 		HOME: string;
 		HOMEDRIVE: string;
 		HOMEPATH: string;
 		INIT_CWD: string;
 		LANG: string;
+		JAVA_HOME: string;
 		LOCALAPPDATA: string;
+		LOCAL_GIT_DIRECTORY: string;
 		LOGONSERVER: string;
 		NODE: string;
 		NODE_ENV: string;
@@ -193,7 +196,6 @@ declare module '$env/dynamic/private' {
 		npm_config_metrics_registry: string;
 		npm_config_node_gyp: string;
 		npm_config_noproxy: string;
-		npm_config_npm_version: string;
 		npm_config_open: string;
 		npm_config_prefix: string;
 		npm_config_registry: string;
@@ -215,10 +217,7 @@ declare module '$env/dynamic/private' {
 		NVM_SYMLINK: string;
 		NVTOOLSEXT_PATH: string;
 		OneDrive: string;
-		OPENCL_BIN: string;
-		OPENCL_INC: string;
-		OPENCL_LIB32: string;
-		OPENCL_LIB64: string;
+		OneDriveConsumer: string;
 		ORIGINAL_XDG_CURRENT_DESKTOP: string;
 		OS: string;
 		Path: string;
@@ -239,7 +238,8 @@ declare module '$env/dynamic/private' {
 		TEMP: string;
 		TERM_PROGRAM: string;
 		TERM_PROGRAM_VERSION: string;
-		TESSDATA_PREFIX: string;
+
+
 		TMP: string;
 		USERDOMAIN: string;
 		USERDOMAIN_ROAMINGPROFILE: string;
@@ -250,6 +250,7 @@ declare module '$env/dynamic/private' {
 		VSCODE_GIT_ASKPASS_NODE: string;
 		VSCODE_GIT_IPC_HANDLE: string;
 		VSCODE_INJECTION: string;
+		VSCODE_NONCE: string;
 		windir: string;
 		[key: `PUBLIC_${string}`]: undefined;
 		[key: `${string}`]: string | undefined;

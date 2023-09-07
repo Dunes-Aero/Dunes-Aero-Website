@@ -4,14 +4,13 @@
 </script>
 
 <section
-	id="about"
-	class="our-process relative w-full h-screen mx-auto bg-hero bg-no-repeat bg-cover bg-center items-center"
+	class="our-process relative w-full pb-16 mx-auto bg-hero bg-no-repeat bg-cover bg-center items-center"
 >
-	<div class="p-16 w-full">
+	<div class="p-16 ">
 		<Title pageTitle="Our Process" elementHTML="h1" class="lg:w-full" />
 	</div>
 
-	<div class="pt-6"><Line /></div>
+	<div class="lg:pt-6 2xl:pt-16 w-full"><Line /></div>
 </section>
 
 <style>

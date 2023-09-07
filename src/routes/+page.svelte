@@ -1,17 +1,29 @@
 <script>
-  import Hero from './Hero/+page.svelte'
-  import About from './About/+page.svelte'
-  import Process from './Process/+page.svelte'
-  import Contact from './Contact/+page.svelte'
-</script>  
-<Hero/>
-<About/>
-<Process/>
-<Contact/>
+	import Hero from './Hero/+page.svelte';
+	import About from './About/+page.svelte';
+	import Process from './Process/+page.svelte';
+	import Contact from './Contact/+page.svelte';
+	import Partners from './Partners/+page.svelte';
+	import Solutions from './Solutions/+page.svelte';
+</script>
 
+<div class="main">
 
-  <style lang="postcss">
-    :global(html) {
-      background-color: theme(colors.gray.100);
-    }
-  </style>
+  <Hero />
+	<Partners />
+	<Solutions />
+	<About />
+	<Process />
+	<Contact />
+
+</div>
+
+<style lang="postcss">
+	:global(html) {
+		background-color: theme(colors.gray.100);
+	}
+
+	.main {
+		scroll-behavior: smooth;
+	}
+</style>

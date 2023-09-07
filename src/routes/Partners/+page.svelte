@@ -1,59 +1,62 @@
 <script>
-	/*var copy = document.querySelector("slide-track").cloneNode(true);
-	document.querySelector("slide").appendChild(copy);*/
 </script>
 
-<div class="slider">
-	<div class="slide-track">
-		<div class="slide">
-			<img src="/GACA.svg" alt="logo" height="100" width="250" />
-		</div>
-		<div class="slide">
-			<img src="/KACST.svg" alt="logo" height="100" width="250" />
-		</div>
-		<div class="slide">
-			<img src="/MCIT.svg" alt="logo" height="100" width="250" />
-		</div>
-		<div class="slide">
-			<img src="/NTDP.svg" alt="logo" height="100" width="250" />
-		</div>
-		<div class="slide">
-			<img src="/SFCPD.svg" alt="logo" height="100" width="250" />
-		</div>
-		<div class="slide">
-			<img src="/GACA.svg" alt="logo" height="100" width="250" />
+<section class="partners">
+	<div class="slider">
+		<h1 class="title">OUR TRUSTED PARTNERS</h1>
+
+		<div class="slide-track">
+			<div class="slide">
+				<img src="src\lib\assets\images\GACA.svg" alt="logo" height="100" width="250" />
+			</div>
+			<div class="slide">
+				<img src="src\lib\assets\images\KACST.svg" alt="logo" height="100" width="250" />
+			</div>
+			<div class="slide">
+				<img src="src\lib\assets\images\MCIT.svg" alt="logo" height="100" width="250" />
+			</div>
+			<div class="slide">
+				<img src="src\lib\assets\images\NTDP.svg" alt="logo" height="100" width="250" />
+			</div>
+			<div class="slide">
+				<img src="src\lib\assets\images\SFCPD.svg" alt="logo" height="100" width="250" />
+			</div>
+			<div class="slide">
+				<img src="src\lib\assets\images\GACA.svg" alt="logo" height="100" width="250" />
+			</div>
 		</div>
 	</div>
-</div>
+</section>
 
 <style>
 	.title {
+		margin-top: 40px;
 		text-align: center;
+		font-size: 28px;
+		font-weight: 600;
 	}
-
- 
 
 	@keyframes scroll {
 		0% {
 			transform: translateX(0);
 		}
 		90% {
-			transform: translateX(calc(-70px *7));
+			transform: translateX(calc(-70px * 7));
 		}
 	}
 
 	.slider {
-		height: 150px;
+		height: 235px;
 		margin: auto;
 		overflow: hidden;
 		position: relative;
 		width: auto;
-		background-color: #e9e2d1;
+		background-color: var(--color-secondary);
 	}
 
 	.slider .slide-track {
 		display: inline;
-	 
+
 		animation: scroll 30s linear infinite;
 
 		display: flex;
