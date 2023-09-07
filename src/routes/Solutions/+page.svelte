@@ -1,3 +1,5 @@
+<!-- !solve the solution problem *we want the images to be responsive* -->
+
 <script>
 	function move(){
 	const productContainers = [...document.querySelectorAll('.product-container')];
@@ -6,7 +8,7 @@ const preBtn = [...document.querySelectorAll('.pre-btn')];
 
 productContainers.forEach((item, i) => {
     let containerDimensions = item.getBoundingClientRect();
-    let containerWidth = containerDimensions.width;
+    let containerWidth = containerDimensions.width ;
 
     nxtBtn[i].addEventListener('click', () => {
         item.scrollLeft += containerWidth;
@@ -17,65 +19,134 @@ productContainers.forEach((item, i) => {
     })
 })
 }
+
+let activeSlide = 0; // Initialize the active slide
+  let indicators = [0, 1, 2]; // Number of slides
+
+  
+
+
  </script>
 
-<section>
+<section class="bg-primary h-screen">
 	
-	<div class="header">   
+	<div class="header bg-primary">   
 	
-		<h1 class="xl:text-5xl lg:text-4xl text-2xl text-center text-secondary font-bold ">Dunes aero Solutions</h1>
+		<h1 class="xl:text-5xl lg:text-4xl text-2xl text-center text-secondary font-bold my-10">Dunes aero Solutions</h1>
 
-	<h5 class="xl:text-5xl lg:text-4xl text-2xl text-center text-primary font-bold ">Tailoring the Sky to Your Needs. Beyond our specialized services and solutions, we offer bespoke drone solutions, innovatively designed to meet the unique demands of your business. </h5>
+    <h5 class="xl:text-3xl lg:text-2xl text-2xl text-center text-secondary font-bold py-12 w-3/4 mx-auto">Tailoring the Sky to Your Needs. Beyond our specialized services and solutions, we offer bespoke drone solutions, innovatively designed to meet the unique demands of your business.</h5>
 
 </div>
 
 
-	<div class="product">
-			
-			<button class="pre-btn" on:click={move}><img src="src\lib\assets\images\arrow.png" alt=""></button>
-			<button class="nxt-btn" on:click={move}><img src="src\lib\assets\images\arrow.png" alt=""></button>
+<div class="product bg-primary ">
+  <button class="pre-btn bg-primary-hover hover:bg-secondary-hover rounded" on:click={move}
+  on:click={() => move('prev')}>
+    
+    <img src="src\lib\assets\images\right.svg" alt="">
+  </button>
+  <button class="nxt-btn bg-primary-hover hover:bg-secondary-hover rounded" on:click={move}
+  on:click={() => move('next')}>
+    
+    <img src="src\lib\assets\images\right.svg" alt="">
+  </button>
 
-			<div class="product-container">
-					<div class="product-card">
-							<img src="src\lib\assets\images\sol1.svg" class="product-thumb" alt="2">
-					</div>
-					<div class="product-card">
-							<img src="src\lib\assets\images\sol2.svg" class="product-thumb" alt="3">
-					</div>
-					<div class="product-card">
-							<img src="src\lib\assets\images\sol3.svg" class="product-thumb" alt="4">
-					</div>
-					<div class="product-card">
-							<img src="src\lib\assets\images\sol4.svg" class="product-thumb" alt="5">
-					</div>
-					<div class="product-card">
-							<img src="src\lib\assets\images\sol5.svg" class="product-thumb" alt="s5">
-					</div>
-					<div class="product-card">
-							<img src="src\lib\assets\images\sol6.svg" class="product-thumb" alt="7">
-					</div>
-					<div class="product-card">
-							<img src="src\lib\assets\images\sol7.svg" class="product-thumb" alt="">
-					</div>
-					<div class="product-card">
-							<img src="src\lib\assets\images\sol8.svg" class="product-thumb" alt="">
-					</div>
-					<div class="product-card">
-							<img src="src\lib\assets\images\sol9.svg" class="product-thumb" alt="">
-					</div>
-					<div class="product-card">
-							<img src="src\lib\assets\images\sol10.svg" class="product-thumb" alt="">
-					</div>
-			</div>
-	</div>
+  <div class="product-container bg-primary">
+    <div class="flex" style="margin-right: 350px;">
+      <div class="product-card">
+        <img src="src\lib\assets\images\sol1.svg" class="product-thumb" alt="2">
+      </div>
+      <div class="product-card">
+        <img src="src\lib\assets\images\sol2.svg" class="product-thumb" alt="3">
+      </div>
+      <div class="product-card">
+        <img src="src\lib\assets\images\sol3.svg" class="product-thumb" alt="4">
+      </div>
+      <div class="product-card">
+        <img src="src\lib\assets\images\sol4.svg" class="product-thumb" alt="5">
+      </div>
+    </div>
 
-	<h6>Your vision, our flight - together.</h6>
+    <div class="flex " >
+      <div class="product-card">
+        <img src="src\lib\assets\images\sol5.svg" class="product-thumb" alt="s5">
+      </div>
+      <div class="product-card">
+        <img src="src\lib\assets\images\sol6.svg" class="product-thumb" alt="7">
+      </div>
+      <div class="product-card">
+        <img src="src\lib\assets\images\sol7.svg" class="product-thumb" alt="">
+      </div>
+      <div class="product-card">
+        <img src="src\lib\assets\images\sol8.svg" class="product-thumb" alt="">
+      </div>
+    </div>
+
+    <div class="flex ">
+      <div class="product-card">
+        <img src="src\lib\assets\images\sol9.svg" class="product-thumb" alt="">
+      </div>
+      <div class="product-card">
+        <img src="src\lib\assets\images\sol10.svg" class="product-thumb" alt="">
+      </div>
+    </div>
+  </div>
+
+  <div class="indicator-container flex justify-center mt-4">
+    {#each indicators as indicator, index}
+      <span
+        class="indicator-dot rounded-full h-2 w-2 mx-2 bg-gray-400"
+        class:selected={index === activeSlide}
+      ></span>
+    {/each}
+  </div>
+</div>
+
+	<h6 class="xl:text-2xl lg:text-2xl text-1xl text-center text-secondary font-semibold my-10">Your vision, our flight - together.</h6>
+
+
+
+  <script>
+    // --------------------------
+
+let activeSlide = 0; // Initialize the active slide
+  let indicators = [0, 1, 2]; // Number of slides
+
+  function move(direction) {
+    if (direction === 'next') {
+      if (activeSlide < indicators.length - 1) {
+        activeSlide++;
+      } else {
+        activeSlide = 0; // Wrap to the first slide if at the end
+      }
+    } else {
+      if (activeSlide > 0) {
+        activeSlide--;
+      } else {
+        activeSlide = indicators.length - 1; // Wrap to the last slide if at the beginning
+      }
+    }
+  }
+
+
+  
+  </script>
 </section>
 	 
  
 
 <style>
-  
+    /* Indicator dot style */
+    .indicator-dot {
+    width: 8px;
+    height: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .indicator-dot.selected {
+    background-color: #007bff; /* Change to your desired color */
+  }
  
 .header{
  
@@ -83,26 +154,27 @@ padding-top: 20px;
 text-align: center;
 	
 } 
-.title{
+/* .title{
 color: var(--color-secondary);
 padding-bottom: 3%;
 font-size: 30px;
-}
-.body{
+} */
+/* .body{
 color:var(--color-secondary); 
-}
+} */
 
- section{
-  background-color: #112B3C;
-height:780px;
+ /* section{
+ background-color: #112B3C; 
+height:780px; this will keep the scroling bar showing on the left so we will use h-screen on the 
 
- } 
+ }  */
 
 /* PRODUCTS */
 .product {
   position: relative;
   overflow: hidden;
   padding: 20px;
+  
   
 }
  
@@ -112,6 +184,8 @@ height:780px;
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
+  
+  
 
 }
 
@@ -123,7 +197,8 @@ height:780px;
   flex: 0 0 auto;
   width: 250px;
   height: 250px;
-  margin-right: 40px;
+  margin-right: 40px;  
+  /* this will change the spaces between the solutions */
 }
 
  
@@ -140,14 +215,14 @@ height:780px;
  
  
 
-.product-card:hover .card-btn {
+/* .product-card:hover .card-btn {
   opacity: 1;
 }
 
 .card-btn:hover {
   background: #ff7d7d;
   color: #fff;
-}
+} */
 
  
  
@@ -157,14 +232,14 @@ height:780px;
 .pre-btn,
 .nxt-btn {
   border: none;
-  width: 10vw;
+  width: 5vw;
   height: 100%;
   position: absolute;
   top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+  /* background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff 100%); */
   cursor: pointer;
   z-index: 8;
 }
@@ -180,6 +255,7 @@ height:780px;
 
 .pre-btn img,
 .nxt-btn img {
+
   opacity: 0.2;
 }
 
@@ -187,7 +263,7 @@ height:780px;
 .nxt-btn:hover img {
   opacity: 1;
 }
-
+/* 
 .collection-container {
   width: 100%;
   display: grid;
@@ -219,6 +295,6 @@ height:780px;
 .collection:nth-child(3) {
   grid-column: span 2;
   margin-bottom: 10px;
-}
+} */
 
 </style>

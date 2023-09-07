@@ -38,13 +38,13 @@ declare module '$env/static/private' {
 	export const COMPUTERNAME: string;
 	export const ComSpec: string;
 	export const CUDA_PATH: string;
-	export const CUDA_PATH_V11_0: string;
 	export const CUDA_PATH_V11_2: string;
 	export const CUDA_PATH_V11_7: string;
-	export const CUDA_PATH_V12_1: string;
+	export const DokanLibrary1: string;
+	export const DokanLibrary1_LibraryPath_x64: string;
+	export const DokanLibrary1_LibraryPath_x86: string;
 	export const DriverData: string;
 	export const EDITOR: string;
-	export const EFC_10960: string;
 	export const FPS_BROWSER_APP_PROFILE_STRING: string;
 	export const FPS_BROWSER_USER_PROFILE_STRING: string;
 	export const GIT_ASKPASS: string;
@@ -53,6 +53,7 @@ declare module '$env/static/private' {
 	export const HOMEDRIVE: string;
 	export const HOMEPATH: string;
 	export const INIT_CWD: string;
+	export const LANG: string;
 	export const LOCALAPPDATA: string;
 	export const LOGONSERVER: string;
 	export const NLS_LANG: string;
@@ -82,12 +83,8 @@ declare module '$env/static/private' {
 	export const npm_package_version: string;
 	export const NPM_PREFIX_NPM_CLI_JS: string;
 	export const NUMBER_OF_PROCESSORS: string;
-	export const NVCUDASAMPLES10_1_ROOT: string;
-	export const NVCUDASAMPLES11_0_ROOT: string;
 	export const NVCUDASAMPLES11_2_ROOT: string;
 	export const NVCUDASAMPLES_ROOT: string;
-	export const NVM_HOME: string;
-	export const NVM_SYMLINK: string;
 	export const NVTOOLSEXT_PATH: string;
 	export const OneDrive: string;
 	export const ORIGINAL_XDG_CURRENT_DESKTOP: string;
@@ -124,7 +121,6 @@ declare module '$env/static/private' {
 	export const VSCODE_GIT_IPC_HANDLE: string;
 	export const VSCODE_INJECTION: string;
 	export const windir: string;
-	export const ZES_ENABLE_SYSMAN: string;
 }
 
 /**
@@ -166,13 +162,15 @@ declare module '$env/dynamic/private' {
 		COMPUTERNAME: string;
 		ComSpec: string;
 		CUDA_PATH: string;
-		CUDA_PATH_V11_0: string;
 		CUDA_PATH_V11_2: string;
 		CUDA_PATH_V11_7: string;
-		CUDA_PATH_V12_1: string;
+		DokanLibrary1: string;
+		DokanLibrary1_LibraryPath_x64: string;
+		DokanLibrary1_LibraryPath_x86: string;
 		DriverData: string;
 		EDITOR: string;
-		EFC_10960: string;
+		FPS_BROWSER_APP_PROFILE_STRING: string;
+		FPS_BROWSER_USER_PROFILE_STRING: string;
 		GIT_ASKPASS: string;
 		GOPATH: string;
 		HOME: string;
@@ -180,7 +178,6 @@ declare module '$env/dynamic/private' {
 		HOMEPATH: string;
 		INIT_CWD: string;
 		LANG: string;
-		JAVA_HOME: string;
 		LOCALAPPDATA: string;
 		LOGONSERVER: string;
 		NLS_LANG: string;
@@ -210,12 +207,8 @@ declare module '$env/dynamic/private' {
 		npm_package_version: string;
 		NPM_PREFIX_NPM_CLI_JS: string;
 		NUMBER_OF_PROCESSORS: string;
-		NVCUDASAMPLES10_1_ROOT: string;
-		NVCUDASAMPLES11_0_ROOT: string;
 		NVCUDASAMPLES11_2_ROOT: string;
 		NVCUDASAMPLES_ROOT: string;
-		NVM_HOME: string;
-		NVM_SYMLINK: string;
 		NVTOOLSEXT_PATH: string;
 		OneDrive: string;
 		ORIGINAL_XDG_CURRENT_DESKTOP: string;
@@ -252,7 +245,6 @@ declare module '$env/dynamic/private' {
 		VSCODE_GIT_IPC_HANDLE: string;
 		VSCODE_INJECTION: string;
 		windir: string;
-		ZES_ENABLE_SYSMAN: string;
 		[key: `PUBLIC_${string}`]: undefined;
 		[key: `${string}`]: string | undefined;
 	}

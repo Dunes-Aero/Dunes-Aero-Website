@@ -28,7 +28,7 @@
 	function validateEmail() {
 		const emailPattern =  /^[^\s@]+@gmail\.com$/;
 		if (!email.match(emailPattern)) {
-			emailError = 'Email must end with @forexample.com';
+			emailError = 'Email must end with @gmail.com';
 		} else {
 			emailError = '';
 		}
@@ -113,7 +113,7 @@
 							/>
 
 							{#if fullNameError}
-								<p class="text-red-500 text-sm">{fullNameError}</p>
+								<p class="text-red-500 text-sm font-joseph">{fullNameError}</p>
 							{/if}
 						</div>
 						<!-- <div class="md:ml-2">
@@ -142,7 +142,7 @@
 							/>
 
 							{#if emailError}
-								<p class="text-red-500 text-sm">{emailError}</p>
+								<p class="text-red-500 text-sm font-joseph">{emailError}</p>
 							{/if}
 						</div>
 						<div class="mb-4 md:flex md:justify-between">
@@ -172,7 +172,7 @@
 									/>
 								</div>
 								{#if fullNameError}
-								<p class="text-red-500 text-sm">{passwordMissingError}</p>
+								<p class="text-red-500 text-sm font-joseph">{passwordMissingError}</p>
 							{/if}
 							</div>
 							<div class="md:ml-2 w-full md:w-1/2">
@@ -200,7 +200,7 @@
 									/>
 								</div>
 								{#if passwordMatchError}
-								<p class="text-red-500 text-sm">{passwordMatchError}</p>
+								<p class="text-red-500 text-sm font-joseph">{passwordMatchError}</p>
 							{/if}
 							</div>
 						</div>
