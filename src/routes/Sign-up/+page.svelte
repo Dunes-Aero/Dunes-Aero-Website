@@ -3,7 +3,83 @@
 	import Unvisible from '$lib/assets/images/unvisible.svg';
 	import Visible from '$lib/assets/images/visible.svg';
 	
+
+	let fullName = '';
+	let email = '';
+	let password = '';
+	let c_password = '';
+
+	let fullNameError = '';
+	let emailError = '';
+	let passwordMatchError = '';
+	let passwordMissingError = ''; // New error message
+
+
+
+	function validateFullName() {
+		const fullNamePattern = /^[A-Za-z\s]+$/;
+		if (!fullName.match(fullNamePattern)) {
+			fullNameError = 'Full Name cannot contain numbers or special characters.';
+		} else {
+			fullNameError = '';
+		}
+	}
+
+	function validateEmail() {
+		const emailPattern =  /^[^\s@]+@gmail\.com$/;
+		if (!email.match(emailPattern)) {
+			emailError = 'Email must end with @forexample.com';
+		} else {
+			emailError = '';
+		}
+	}
+
+	function validatePassword() {
+		const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+		if (!password.match(passwordPattern)) {
+			passwordMissingError = 'Password must be at least 8 characters long and contain both letters and numbers.';
+		} else {
+			passwordMissingError = '';
+		}
+	}
+
+	function validatePasswordMatch() {
+		if (password !== c_password) {
+			passwordMatchError = 'Passwords do not match.';
+		} else {
+			passwordMatchError = '';
+		}
+	}
+
+	function canSubmit() {
+		// Check if all fields are filled and there are no errors
+		return (
+			fullName.trim() !== '' &&
+			email.trim() !== '' &&
+			password.trim() !== '' &&
+			c_password.trim() !== '' &&
+			!fullNameError &&
+			!emailError &&
+			!passwordMatchError &&
+			!passwordMissingError
+		);
+	}
+
+	function handleSubmit() {
+		validateFullName();
+		validateEmail();
+		validatePassword();
+		validatePasswordMatch();
+
+		if (canSubmit()) {
+			// Form is valid, you can proceed with form submission or other actions here
+			alert('Form submitted successfully!');
+		}
+	}
+
 </script>
+
+
 
 <section class="font-mono mx-auto bg-primary h-screen my-auto flex items-center">
 	<!-- Container -->
@@ -32,7 +108,13 @@
 								id="fullName"
 								type="fullName"
 								placeholder="Name"
+								bind:value={fullName}
+								on:input={validateFullName}
 							/>
+
+							{#if fullNameError}
+								<p class="text-red-500 text-sm">{fullNameError}</p>
+							{/if}
 						</div>
 						<!-- <div class="md:ml-2">
 										<label class="block mb-2 text-sm font-bold text-gray-700" for="lastName">
@@ -55,7 +137,13 @@
 								id="email"
 								type="email"
 								placeholder="Email Address"
+								bind:value={email}
+								on:input={validateEmail}
 							/>
+
+							{#if emailError}
+								<p class="text-red-500 text-sm">{emailError}</p>
+							{/if}
 						</div>
 						<div class="mb-4 md:flex md:justify-between">
 							<div class="mb-4 md:mr-2 md:mb-0 w-full md:w-1/2">
@@ -72,6 +160,9 @@
 										id="password"
 										type="password"
 										placeholder="Password"
+										bind:value={password}
+										on:input={validatePasswordMatch}
+										
 									/>
 									<img
 										src={Visible}
@@ -80,6 +171,9 @@
 										id="eyeicon"
 									/>
 								</div>
+								{#if fullNameError}
+								<p class="text-red-500 text-sm">{passwordMissingError}</p>
+							{/if}
 							</div>
 							<div class="md:ml-2 w-full md:w-1/2">
 								<!-- Adjust width here -->
@@ -95,6 +189,8 @@
 										id="c_password"
 										type="password"
 										placeholder="Confirm Password"
+										bind:value={c_password}
+										on:input={validatePasswordMatch}
 									/>
 									<img
 										src="/src/lib/assets/images/visible.svg"
@@ -103,6 +199,9 @@
 										id="c_eyeicon"
 									/>
 								</div>
+								{#if passwordMatchError}
+								<p class="text-red-500 text-sm">{passwordMatchError}</p>
+							{/if}
 							</div>
 						</div>
 
@@ -125,6 +224,7 @@
 							<button
 								class="w-full px-4 py-2 font-bold font-tenor text-white bg-primary rounded-md hover:bg-primary-hover focus:outline-none focus:shadow-outline"
 								type="button"
+								on:click={handleSubmit}
 							>
 								Create an Account
 							</button>
@@ -151,6 +251,7 @@
 			</div>
 		</div>
 	</div>
+
 
 
 	<script>
@@ -182,6 +283,62 @@
 				c_eyeicon.src = visibleButton;
 			}
 		}
+
+
+
+		// this code is for validation
+	// 	let fullName = '';
+	// let email = '';
+	// let password = '';
+	// let c_password = '';
+
+	// let fullNameError = '';
+	// let passwordMatchError = '';
+
+	// const unvisibleButton = '/src/lib/assets/images/unvisible.svg';
+	// const visibleButton = '/src/lib/assets/images/visible.svg';
+
+	// function togglePasswordVisibility(inputId, eyeIconId) {
+	// 	const input = document.getElementById(inputId);
+	// 	const eyeIcon = document.getElementById(eyeIconId);
+
+	// 	if (input.type === 'password') {
+	// 		input.type = 'text';
+	// 		eyeIcon.src = unvisibleButton;
+	// 	} else {
+	// 		input.type = 'password';
+	// 		eyeIcon.src = visibleButton;
+	// 	}
+	// }
+
+	// function validateFullName() {
+	// 	const fullNamePattern = /^[A-Za-z\s]+$/;
+	// 	if (!fullName.match(fullNamePattern)) {
+	// 		fullNameError = 'Full Name cannot contain numbers or special characters.';
+	// 	} else {
+	// 		fullNameError = '';
+	// 	}
+	// }
+
+	// function validatePasswordMatch() {
+	// 	if (password !== c_password) {
+	// 		passwordMatchError = 'Passwords do not match.';
+	// 	} else {
+	// 		passwordMatchError = '';
+	// 	}
+	// }
+
+	// function handleSubmit() {
+	// 	validateFullName();
+	// 	validatePasswordMatch();
+
+	// 	// Check if there are any validation errors
+	// 	if (!fullNameError && !passwordMatchError) {
+	// 		// Form is valid, you can proceed with form submission or other actions here
+	// 		alert('Form submitted successfully!');
+	// 	}
+	// }
+
 	</script>
 
 
