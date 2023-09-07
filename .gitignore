@@ -1,2 +1,5 @@
 node_modules
 .env
+fastapi-auth/fastapi-auth
+fastapi-auth/.idea
+fastapi-auth/__pycache__

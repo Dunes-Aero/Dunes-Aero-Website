@@ -1,0 +1,9 @@
+Setting up a fastapi project 
+1. Create a virtual environment
+note : you can use these commands for windows OS
+-  py -3.11 -m venv fastapi-auth
+- .\fastapi-auth\Scripts\Activate
+- pip install requirements.txt
+
+2. Make sure you link your workspace to the virtual environment (I usually use pycharm, it does it automatically)
+3. run uvicorn main:app --reload in CMD 
