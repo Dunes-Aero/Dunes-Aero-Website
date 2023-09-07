@@ -48,7 +48,7 @@
 					<div class="w-full h-full xl:w-3/4 lg:w-11/12 flex">
 						<!-- Col -->
 						<div
-							class="w-full h-auto hidden lg:block lg:w-5/12 bg-cover rounded-l-lg"
+							class="w-full h-auto hidden lg:block lg:w-5/12 bg-cover rounded-l-lg border-secondary border-4"
 							style="background-image: url('/src/lib/assets/images/Signin.png')"
 						/>
 						<!-- Col -->

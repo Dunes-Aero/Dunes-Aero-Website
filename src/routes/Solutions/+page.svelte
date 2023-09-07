@@ -1,5 +1,5 @@
 <!-- !solve the solution problem *we want the images to be responsive* -->
-
+<!-- !finish the functunality of the slider indicator *circle* -->
 <script>
 	function move(){
 	const productContainers = [...document.querySelectorAll('.product-container')];
