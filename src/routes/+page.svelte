@@ -8,10 +8,9 @@
 
 
 	export let data=''
-
 	$:msg = JSON.stringify(data)
 </script>
-<h1 class="text-wjite text-3xl">{msg}</h1>
+
 <div class="main">
 
   <Hero />
