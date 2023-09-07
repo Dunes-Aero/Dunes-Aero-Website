@@ -5,6 +5,10 @@
 	import Contact from './Contact/+page.svelte';
 	import Partners from './Partners/+page.svelte';
 	import Solutions from './Solutions/+page.svelte';
+
+
+	export let data=''
+	$:msg = JSON.stringify(data)
 </script>
 
 <div class="main">
