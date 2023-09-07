@@ -12,7 +12,7 @@
 	];
 </script>
 
-<div class="  h-[660px] bg-secondary p-5 w-1/4 hidden lg:flex flex-col gap-y-10 items-center">
+<div class="  h-[680px] bg-secondary p-5 w-1/4 hidden lg:flex flex-col gap-y-10 items-center">
 	<img src={logo} class="object-contain object-center" alt="logo" />
 	<Subtitle>Contact Information</Subtitle>
 	<ul class="grid gap-y-8 float-left mt-16">
