@@ -1,4 +1,10 @@
-Setting up a fastapi project 
+Activating existing virtual environemnt 
+1. Navigate to /dunes-aero-website/fastapi-auth
+2. in CMD type : .\fastapi-auth\Scripts\Activate
+3. type : uvicorn main:app --reload 
+
+
+Setting up a fastapi project for the first time
 1. Create a virtual environment
 note : you can use these commands for windows OS
 -  py -3.11 -m venv fastapi-auth
