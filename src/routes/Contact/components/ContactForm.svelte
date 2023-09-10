@@ -76,12 +76,12 @@
 </script>
 
 <div
-	class="form-container h-[680px] xl:w-2/5 lg:w-3/5  w-11/12 bg-primary border-secondary border-2 p-5 round grid items-center"
+	class="form-container h-[680px] xl:w-2/5 lg:w-3/5  w-11/12 bg-primary border-secondary border-2 p-5 round grid  items-center"
 >
 	<form class="xl:w-5/6 w-full p-5" on:submit|preventDefault={submitHandler}>
 		<div
-			class={`grid grid-cols-2 ${
-				{ valid } ? '' : 'grid-rows-3 gap-2'
+			class={`grid grid-cols-2 justify-between gap-x-20 ${
+				{ valid } ? '' : 'grid-rows-3 gap-y-2 '
 			}justify-between w-full lg:w-4/5 `}
 		>
 			<InputField
