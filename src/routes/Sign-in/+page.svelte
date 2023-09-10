@@ -1,6 +1,44 @@
 <!-- creat componants in svelte -->
+<!-- !change the error to be under the input -->
+
+<script>
+	import Unvisible from '$lib/assets/images/unvisible.svg';
+	import Visible from '$lib/assets/images/visible.svg';
+  
+	let email = '';
+	let password = '';
+  
+
+	function validateEmail() {
+		const emailPattern =  /^[^\s@]+@gmail\.com$/;
+		if (!email.match(emailPattern)) {
+			emailError = 'Email must end with @forexample.com';
+		} else {
+			emailError = '';
+		}
+	}
+
+	function validatePassword() {
+		const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+		if (!password.match(passwordPattern)) {
+			passwordMissingError = 'Password must be at least 8 characters long and contain both letters and numbers.';
+		} else {
+			passwordMissingError = '';
+		}
+	}
 
 
+	function handleSubmit() {
+	  // Check if both email and password fields are not empty
+	  if (email.trim() === '' || password.trim() === '') {
+		alert('Please fill in both email and password fields.');
+		return; // Prevent form submission
+	  }
+  
+	  // If both fields are not empty, you can proceed with form submission or other actions here
+	  alert('Form submitted successfully!');
+	}
+  </script>
 
 		<section class="font-mono mx-auto bg-primary h-screen my-auto flex items-center" >
 			<!-- Container -->
@@ -10,7 +48,7 @@
 					<div class="w-full h-full xl:w-3/4 lg:w-11/12 flex">
 						<!-- Col -->
 						<div
-							class="w-full h-auto hidden lg:block lg:w-5/12 bg-cover rounded-l-lg"
+							class="w-full h-auto hidden lg:block lg:w-5/12 bg-cover rounded-l-lg border-secondary border-4"
 							style="background-image: url('/src/lib/assets/images/Signin.png')"
 						/>
 						<!-- Col -->
@@ -55,6 +93,7 @@
 										id="email"
 										type="email"
 										placeholder="Email Address"
+										bind:value={email}
 									/>
 								</div>
 								
@@ -111,6 +150,7 @@
 									<button
 										class="w-full px-4 py-2 font-bold font-tenor text-white bg-primary rounded-md hover:bg-primary-hover focus:outline-none focus:shadow-outline"
 										type="button"
+										on:click={handleSubmit}
 									>
 										Sign In
 									</button>
