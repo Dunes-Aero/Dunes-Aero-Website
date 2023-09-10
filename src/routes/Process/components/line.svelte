@@ -1,61 +1,93 @@
 <script>
 	import Item from './item.svelte';
-	import LineIcon from '$lib/assets/images/LineItem.svg';
+	import LineIcon from '$lib/assets/images/TimeLine.svg';
 </script>
 
 <div class="container mx-auto relative">
 	<!-- Image container -->
 	<div class="grid justify-items-center">
-		<img src={LineIcon} alt="" class="w-5" />
+		<img src={LineIcon} alt="" class="w-5 line-small" />
 	</div>
 
 	<!-- Absolute positioning for the "Item" components -->
-	<div class="item-one absolute -top-8 lg:left-52">
-		<Item textItem="Understand your business needs" />
+	<div class="item-one absolute">
+		<Item isRightLeft="yes" textItems={['Contact Us']} iconName="contact" />
 	</div>
-	<div class="item-two absolute top-40 transform -translate-y-1/2 right-80">
-		<Item isRightLeft="yes" textItem="Finalize your order" />
+	<div class="item-two absolute">
+		<Item textItems={['Understanding your', ' business needs']} iconName="business" />
 	</div>
-	<div class="item-three absolute bottom-8 left-60">
-		<Item textItem="Order fulfilling and support" />
+	<div class="item-three absolute">
+		<Item isRightLeft="yes" textItems={['Finalize your order']} iconName="order" />
+	</div>
+	<div class="item-four absolute">
+		<Item textItems={['Order fulfilling and', 'support']} iconName="support" />
 	</div>
 </div>
 
 <style>
-	.container {
-		height: 100%;
+	.item-one {
+		top: -38px;
+		right: 280px;
+		/* border: 1px beige solid; */
+	}
+	.item-two {
+		top: 77px;
+		left: 270px;
+		/* border: 1px beige solid; */
+	}
+	.item-three {
+		top: 222px;
+		right: 250px;
+		/* border: 1px beige solid; */
+	}
+	.item-four {
+		top: 346px;
+		left: 270px;
+		/* border: 1px beige solid; */
 	}
 
 	@media (max-width: 768px) {
-		.container {
-			display: flex;
-			flex-direction: column;
-			align-items: center; 
-			justify-content: center; 
+		.line-small {
+			width: 15px;
 		}
-
 		.item-one {
-			text-align: center; 
+			top: -20px;
+			right: 250px;
 		}
-
 		.item-two {
-			right: 23%; 
+			top: 65px;
+			left: 230px;
 		}
-
 		.item-three {
-			left: 16%; 
+			top: 175px;
+			right: 235px;
+		}
+		.item-four {
+			top: 265px;
+			left: 230px;
 		}
 	}
 
 	@media (min-width: 1300px) {
+		.line-small {
+			width: 25px;
+		}
 		.item-one {
-			left: 25%;
+			top: -40px;
+			right: 500px;
 		}
 		.item-two {
-			right: 30%;
+			top: 100px;
+			left: 490px;
 		}
 		.item-three {
-			left: 26%;
+			top: 280px;
+			right:470px;
+		}
+		.item-four {
+			top: 440px;
+			left: 490px;
 		}
 	}
+
 </style>
