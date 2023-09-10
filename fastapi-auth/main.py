@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Request,Body
 from fastapi.middleware.cors import CORSMiddleware
-from db.crud import searchUser, create_connection
+from db.crud import searchUser, create_connection,create_table,loginUser, addUser
+import json
 
 
 app = FastAPI()
@@ -19,8 +20,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-#create db connection 
-conn = create_connection('users.db')
+#create db connection and prepare table
+try:
+    conn = create_connection('users.db')
+    create_table(conn)
+except Exception:
+   print("Error had occured")
 
 @app.get("/")
 async def root():
@@ -31,21 +36,37 @@ async def root():
 async def root():
     return {"message": "Hello main"}
 
-@app.get("/login/")
+@app.post("/login/")
 async def root(payload: dict = Body(...)):
-
-    return payload
-    print("request for login : {}".format(data))
-    return {"status":200, "msg":"yaho"}
-    print("request for login : {}".format(request))
-    email="email"
-    password="password"
+    email = payload["email"]
+    password = payload["password"]
     try:
-      res = searchUser(email,password)
+      res = loginUser(email,password, con=conn)
       if (res == None):
         return {'status':400, 'msg':'Invlaid email or password'}
       else:
         return {'status':200, 'data':res}
+    except:
+        return {'status':500, 'msg':'Unexpected error had occured'}
+    
+
+
+
+@app.post("/signin/")
+async def root(payload: dict = Body(...)):
+    print("request for sign in : {}".format(payload))
+    name = payload["name"]
+    email = payload["email"]
+    password = payload["password"]
+    try:
+      res = searchUser(email,con=conn)
+       
+      if res is not None:
+        return {'status':400, 'msg':'Invlaid email or password'}
+      
+    #TODO: add user function  
+    # return {'status':200, 'data':'new user'}
+                    
     except:
         return {'status':500, 'msg':'Unexpected error had occured'}
 
