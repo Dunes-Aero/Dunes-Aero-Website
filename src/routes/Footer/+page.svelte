@@ -5,8 +5,8 @@
 			<div class="flex flex-wrap justify-center items-center">
 				<!-- First Navbar -->
 				<div class="pb-4">
-					<nav class="flex flex-wrap justify-start -mx-2 -my-4">
-						<div class="px-6 pt-5 ">
+					<nav class="flex flex-wrap justify-start -mx-2 -my-1">
+						<div class="px-6 py-1 ">
 							<a href="/About" class="text-base font-joseph font-bold text-gray-500 hover:text-gray-900">
 								About
 							</a>
@@ -23,7 +23,7 @@
 						</div>
 					</nav>
 					<!-- Horizontal line separator -->
-					<hr class="border-t-2 border-primary w-full ">
+					<hr class="border-t-2 border-primary w-full  ">
 				</div>
 				<!-- Image Container -->
 				<div class="px-2 py-1">
@@ -50,7 +50,7 @@
 						</div>
 					</nav>
 					<!-- Horizontal line separator -->
-					<hr class="border-t border-primary mt-2 ">
+					<hr class="border-t-2 border-primary mt-2 ">
 				</div>
 			</div>
 		</div>
