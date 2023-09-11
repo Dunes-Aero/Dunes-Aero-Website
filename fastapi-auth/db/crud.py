@@ -46,12 +46,21 @@ def create_table(con):
      raise Exception(e)
     
 
-#generate random is string of 8 digits
-#insert id, name,email, pass o=into db
+#insert   name,email, pass o=into db
 #return a success flag 
-def addUser(con,password,email):
-
-    pass
+def addUser(con,name,password,email):
+    try:
+        user = ( email, name ,password)
+        sql = ''' INSERT INTO USERS(EMAIL,NAME,PASSWORD)
+                    VALUES(?,?,?) '''
+        cur = con.cursor()
+        cur.execute(sql, user)
+        
+        con.commit()
+        print('user added')
+    except Error as e:
+        raise Exception(e)
+         
 
 
 

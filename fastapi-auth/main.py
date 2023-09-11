@@ -63,9 +63,9 @@ async def root(payload: dict = Body(...)):
        
       if res is not None:
         return {'status':400, 'msg':'Invlaid email or password'}
-      
-    #TODO: add user function  
-    # return {'status':200, 'data':'new user'}
+      else:
+         addUser(conn,name,password,email)
+         return {'status':200, 'data':'new user'}
                     
     except:
         return {'status':500, 'msg':'Unexpected error had occured'}
