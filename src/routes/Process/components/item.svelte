@@ -26,7 +26,7 @@
 </script>
 
 <div class="container mx-auto flex items-center">
-	<div class="item-box item-back lg:p-4 p-2 rounded-lg flex items-center">
+	<div class="item-box item-back lg:p-4 p-2 rounded-lg lg:flex items-center">
 		{#if isRightLeft == 'yes'}
 			<div class="mr-4">
 				{#each textItems as textItem}

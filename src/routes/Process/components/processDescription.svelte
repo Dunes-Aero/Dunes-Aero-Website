@@ -1,4 +1,6 @@
-<script></script>
+<script>
+		import LineIcon from '$lib/assets/images/TimeLine.svg';
+</script>
 
 <div class="text-center pb-9">
 	<p>

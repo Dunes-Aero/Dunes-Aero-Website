@@ -7,7 +7,7 @@
 <section
 	class="our-process relative w-full pb-16 mx-auto bg-hero bg-no-repeat bg-cover bg-center items-center"
 >
-	<div class="lg:p-16 p-10">
+	<div class="lg:p-6 p-10">
 		<Title pageTitle="Order Process" elementHTML="h1"  textColor="secondary" class="lg:w-full" />
 	</div>
 
