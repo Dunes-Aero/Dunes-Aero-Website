@@ -171,7 +171,7 @@
 										id="eyeicon"
 									/>
 								</div>
-								{#if fullNameError}
+								{#if fullNameError} <!--!check this -->
 								<p class="text-red-500 text-sm font-joseph">{passwordMissingError}</p>
 							{/if}
 							</div>

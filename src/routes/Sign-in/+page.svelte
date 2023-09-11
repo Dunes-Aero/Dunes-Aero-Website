@@ -2,136 +2,121 @@
 <!-- !change the error to be under the input -->
 
 <script>
-	import Unvisible from '$lib/assets/images/unvisible.svg';
-	import Visible from '$lib/assets/images/visible.svg';
-  
-	let email = '';
+	let email ='';
 	let password = '';
-  
+	let emailError = '';
+	let passwordError = '';
 
 	function validateEmail() {
-		const emailPattern =  /^[^\s@]+@gmail\.com$/;
-		if (!email.match(emailPattern)) {
-			emailError = 'Email must end with @forexample.com';
+		const email = document.getElementById('email').value;
+
+		if (email.trim() === '') {
+			emailError = 'Email field is required.';
 		} else {
 			emailError = '';
 		}
 	}
 
 	function validatePassword() {
-		const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-		if (!password.match(passwordPattern)) {
-			passwordMissingError = 'Password must be at least 8 characters long and contain both letters and numbers.';
+		const password = document.getElementById('password').value;
+
+		if (password.trim() === '') {
+			passwordError = 'Password field is required.';
 		} else {
-			passwordMissingError = '';
+			passwordError = '';
 		}
 	}
 
+	function canSubmit() {
+		validateEmail();
+		validatePassword();
+
+		return (
+			!emailError &&
+			!passwordError
+		);
+	}
 
 	function handleSubmit() {
-	  // Check if both email and password fields are not empty
-	  if (email.trim() === '' || password.trim() === '') {
-		alert('Please fill in both email and password fields.');
-		return; // Prevent form submission
-	  }
-  
-	  // If both fields are not empty, you can proceed with form submission or other actions here
-	  alert('Form submitted successfully!');
+		validateEmail();
+		validatePassword();
+
+		if (canSubmit()) {
+			alert('Form submitted successfully!');
+		}
 	}
-  </script>
+</script>
 
-		<section class="font-mono mx-auto bg-primary h-screen my-auto flex items-center" >
-			<!-- Container -->
-			<div class="container mx-auto">
-				<div class="flex justify-center px-6 h-[570px]">
-					<!-- Row -->
-					<div class="w-full h-full xl:w-3/4 lg:w-11/12 flex">
-						<!-- Col -->
-						<div
-							class="w-full h-auto hidden lg:block lg:w-5/12 bg-cover rounded-l-lg border-secondary border-4"
-							style="background-image: url('/src/lib/assets/images/Signin.png')"
-						/>
-						<!-- Col -->
-						<div class="w-full lg:w-7/12 bg-secondary p-5 rounded-lg lg:rounded-l-none">
-							<h3 class="pt-4 pl-7 text-2xl font-tenor">Sign In</h3>
-							<form class="px-8 pt-6 pb-8 mb-4 bg-secondary rounded">
-								<!-- <div class="mb-4">
-									<label
-										class="block mb-2 text-sm font-joseph font-semibold text-gray-700"
-										for="fullName"
-									>
-										Full Name
-									</label>
-									<input
-										class="w-full px-3 py-2 mb-3 text-sm leading-tight font-joseph font-semibold text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-										id="fullName"
-										type="fullName"
-										placeholder="Name"
-									/>
-								</div> -->
-								<!-- <div class="md:ml-2">
-										<label class="block mb-2 text-sm font-bold text-gray-700" for="lastName">
-											Last Name
-										</label>
-										<input
-											class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-											id="lastName"
-											type="text"
-											placeholder="Last Name"
-										/>
-									</div> -->
 
-								<div class="mb-4">
-									<label
-										class="block mb-2 text-sm  font-joseph font-semibold text-gray-700"
-										for="email"
-									>
-										Email
-									</label>
-									<input
-										class="w-full px-3 py-2 mb-3 text-sm leading-tight font-joseph font-semibold text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-										id="email"
-										type="email"
-										placeholder="Email Address"
-										bind:value={email}
-									/>
-								</div>
+<section class="font-mono mx-auto bg-primary h-screen my-auto flex items-center">
+	<!-- Container -->
+	<div class="container mx-auto">
+		<div class="flex justify-center px-6 h-screen">
+			<!-- Row -->
+			<div class="w-full h-full xl:w-3/4 lg:w-11/12 flex">
+				<!-- Col -->
+				<div
+					class="w-full h-auto hidden lg:block lg:w-5/12 bg-cover rounded-l-lg border-secondary border-4"
+					style="background-image: url('/src/lib/assets/images/Signin.png')"
+				/>
+				<!-- Col -->
+				<div class="w-full lg:w-7/12 bg-secondary p-5 rounded-lg lg:rounded-l-none">
+					<h3 class="pt-4 pl-7 text-2xl font-tenor mb-20">Sign In</h3>
+					<form class="px-8 pt-6 pb-8 mb-4 bg-secondary rounded">
+						<div class="mb-4">
+							<label class="block mb-2 text-sm font-joseph font-semibold text-gray-700" for="email">
+								Email
+							</label>
+							<input
+								class="w-full px-3 py-2 mb-3 text-sm leading-tight font-joseph font-semibold text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+								id="email"
+								type="email"
+								placeholder="Email Address"
+								bind:value={email}
+								on:input={validateEmail}
+							/>
+
+							{#if emailError}
+								<p class="text-red-500 text-sm font-joseph">{emailError}</p>
+							{/if}
+						</div>
+
+						<!-- delete this to make the password place longer   -->
+						<div class="mb-4 md:mr-2 md:mb-0">
+							<label
+								class="inline-block mb-2 text-sm font-joseph font-semibold text-gray-700"
+								for="password"
+							>
+								<!-- if you wanted to make the input holder smaller change the inlineblock to bolck and edit the container to be justify-center instead of justify   -->
+								Password
+							</label>
+
+							<div class="relative">
+								<input
+									class="w-full px-3 py-2 mb-3 text-sm leading-tight font-joseph font-semibold text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+									id="password"
+									type="password"
+									placeholder="Password"
+									bind:value={password}
+									on:input={validatePassword}
+								/>
+
 								
-									<!-- delete this to make the password place longer   -->
-									<div class="mb-4 md:mr-2 md:mb-0 ">
-										<label
-											class="inline-block mb-2 text-sm font-joseph font-semibold text-gray-700"
-											for="password"
-										>
-										<!-- if you wanted to make the input holder smaller change the inlineblock to bolck and edit the container to be justify-center instead of justify   -->
-											Password
-										</label>
+								<img
+									src="src/lib/assets/images/visible.svg"
+									alt="Password Visibility Toggle"
+									class="absolute top-1/3 right-3 transform -translate-y-1/2 cursor-pointer"
+									id="eyeicon"
+								/>
+							</div>
+							{#if passwordError}
+								<p class="text-red-500 text-sm font-joseph">{passwordError}</p>
+							{/if}
+						</div>
 
-										
-										 <div class="relative ">
-											<input
-												class="w-full px-3 py-2 mb-3 text-sm leading-tight font-joseph font-semibold text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-												id="password"
-												type="password"
-												placeholder="Password"
-											/>
-											<img
-												src='src/lib/assets/images/visible.svg'
-												alt="Password Visibility Toggle"
-												class="absolute top-1/3 right-3 transform -translate-y-1/2 cursor-pointer "
-												id="eyeicon"
-											/>
-										</div>
-											
-										
+						<!-- ! might need it to make it "remember me" -->
 
-										
-									</div>
-									
-								
-									<!-- ! might need it to make it "remember me" -->
-
-								<!-- <div class="mb-4">
+						<!-- <div class="mb-4">
 									<label class="flex items-center space-x-2">
 										<input
 											type="checkbox"
@@ -146,60 +131,52 @@
 									</label>
 								</div> -->
 
-								<div class="mb-6 text-center">
-									<button
-										class="w-full px-4 py-2 font-bold font-tenor text-white bg-primary rounded-md hover:bg-primary-hover focus:outline-none focus:shadow-outline"
-										type="button"
-										on:click={handleSubmit}
-									>
-										Sign In
-									</button>
-								</div>
-								<hr class="mb-6 border-t" />
-								<div class="text-center">
-									<a
-										class="inline-block text-sm text-primary align-baseline hover:text-primary-hover font-joseph"
-										href="#"
-									>
-										Forgot password?
-									</a>
-								</div>
-								<div class="text-center">
-									<a
-										class="inline-block text-sm text-primary align-baseline hover:text-primary-hover font-joseph"
-										href="./Sign-up"
-									>
-										Don't have an Account? Join us Now!
-									</a>
-								</div>
-							</form>
+						<div class="mb-6 text-center">
+							<button
+								class="w-full px-4 py-2 font-bold font-tenor text-white bg-primary rounded-md hover:bg-primary-hover focus:outline-none focus:shadow-outline"
+								type="button"
+								on:click={handleSubmit}
+							>
+								Sign In
+							</button>
 						</div>
-					</div>
+						<hr class="mb-6 border-t" />
+						<div class="text-center">
+							<a
+								class="inline-block text-sm text-primary align-baseline hover:text-primary-hover font-joseph"
+								href="#"
+							>
+								Forgot password?
+							</a>
+						</div>
+						<div class="text-center">
+							<a
+								class="inline-block text-sm text-primary align-baseline hover:text-primary-hover font-joseph"
+								href="./Sign-up"
+							>
+								Don't have an Account? Join us Now!
+							</a>
+						</div>
+					</form>
 				</div>
-
-				
 			</div>
+		</div>
+	</div>
 
-			<script>
-				let eyeicon = document.getElementById("eyeicon");
-				let password = document.getElementById("password");
-				let unvisibleButton = '/src/lib/assets/images/unvisible.svg';
-				let visibleButton = '/src/lib/assets/images/visible.svg';
-			  
-				eyeicon.onclick = function () {
-				  if (password.type === "password") {
-					password.type = "text";
-					eyeicon.src = unvisibleButton;
-				  } else {
-					password.type = "password";
-					eyeicon.src = visibleButton;
-				  }
-				}
-			  </script>
-			  
+	<script>
+		let eyeicon = document.getElementById('eyeicon');
+		let password = document.getElementById('password');
+		let unvisibleButton = '/src/lib/assets/images/unvisible.svg';
+		let visibleButton = '/src/lib/assets/images/visible.svg';
 
-			
-			
-		</section>
-	
-
+		eyeicon.onclick = function () {
+			if (password.type === 'password') {
+				password.type = 'text';
+				eyeicon.src = unvisibleButton;
+			} else {
+				password.type = 'password';
+				eyeicon.src = visibleButton;
+			}
+		};
+	</script>
+</section>

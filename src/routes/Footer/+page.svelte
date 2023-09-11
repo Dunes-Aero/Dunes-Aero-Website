@@ -6,24 +6,24 @@
 				<!-- First Navbar -->
 				<div class="pb-4">
 					<nav class="flex flex-wrap justify-start -mx-2 -my-1">
-						<div class="px-6 py-1 ">
-							<a href="/About" class="text-base font-joseph font-bold text-gray-500 hover:text-gray-900">
+						<div class="px-6 py-1">
+							<a href="/About" class="text-base font-joseph font-bold text-primary hover:text-primary-hover">
 								About
 							</a>
 						</div>
 						<div class="px-6 py-1">
-							<a href="/Solutions" class="text-base font-joseph font-bold text-gray-500 hover:text-gray-900">
+							<a href="/Soultions" class="text-base font-joseph font-bold text-primary hover:text-primary-hover">
 								Solutions
 							</a>
 						</div>
 						<div class="px-6 py-1">
-							<a href="/Partners" class="text-base font-joseph font-bold text-gray-500 hover:text-gray-900">
+							<a href="/Partners" class="text-base font-joseph font-bold text-primary hover:text-primary-hover">
 								Partners
 							</a>
 						</div>
 					</nav>
 					<!-- Horizontal line separator -->
-					<hr class="border-t-2 border-primary w-full  ">
+					<hr class="border-t-2 border-primary mt-2 ">
 				</div>
 				<!-- Image Container -->
 				<div class="px-2 py-1">
@@ -34,17 +34,17 @@
 				<div class="pb-4">
 					<nav class="flex flex-wrap justify-end -mx-2 -my-1">
 						<div class="px-6 py-1">
-							<a href="/Contact" class="text-base font-joseph font-bold text-gray-500 hover:text-gray-900">
+							<a href="/Contact" class="text-base font-joseph font-bold text-primary hover:text-primary-hover">
 								Contact
 							</a>
 						</div>
 						<div class="px-6 py-1">
-							<a href="#" class="text-base font-joseph font-bold text-gray-500 hover:text-gray-900">
+							<a href="#" class="text-base font-joseph font-bold text-primary hover:text-primary-hover">
 								Terms
 							</a>
 						</div>
 						<div class="px-6 py-1">
-							<a href="#" class="text-base font-joseph font-bold text-gray-500 hover:text-gray-900">
+							<a href="#" class="text-base font-joseph font-bold text-primary hover:text-primary-hover">
 								Privacy Policy
 							</a>
 						</div>
@@ -79,9 +79,8 @@
 			<!-- Email icon and URL -->
             <a href="#" class="text-gray-400 hover:text-gray-500">
                 
-                <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 20 20">
-					<path fill="#112B3C" d="M18 7.373V14.5a2.5 2.5 0 0 1-2.5 2.5h-11A2.5 2.5 0 0 1 2 14.5V7.373l7.746 4.558a.5.5 0 0 0 .508 0L18 7.373ZM15.5 4a2.5 2.5 0 0 1 2.485 2.223L10 10.92L2.015 6.223A2.5 2.5 0 0 1 4.5 4h11Z"/>
-				</svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="40px" viewBox="0 0 16 16"><path fill="#112b3c" d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zM4 4h8c.143 0 .281.031.409.088L8 9.231L3.591 4.088A.982.982 0 0 1 4 4zm-1 7V5l.002-.063l2.932 3.421l-2.9 2.9A.967.967 0 0 1 3 11zm9 1H4c-.088 0-.175-.012-.258-.034L6.588 9.12l1.413 1.648L9.414 9.12l2.846 2.846a.967.967 0 0 1-.258.034zm1-1c0 .088-.012.175-.034.258l-2.9-2.9l2.932-3.421L13 5v6z"/></svg>
+
 				
             </a>
 
