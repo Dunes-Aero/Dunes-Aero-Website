@@ -2,28 +2,28 @@ import sqlite3
 from sqlite3 import Error
 
 
-# con = sqlite3.connect('users.db')
-# cur = con.cursor()
-# try:
-#     cur.execute("CREATE TABLE USERS(ID, EMAIL, NAME, PASSWORD)")
-# except Error as e:
-#    print(e)
+con = sqlite3.connect('users.db')
+cur = con.cursor()
+try:
+   cur.execute("CREATE TABLE USERS(ID INTEGER PRIMARY KEY, EMAIL TEXT, NAME TEXT, PASSWORD TEXT)")
+except Error as e:
+   print(e)
 
-# # #verify table existence 
-# # res = cur.execute("SELECT name FROM sqlite_master")
-# # res.fetchall()
+# #verify table existence 
+# res = cur.execute("SELECT name FROM sqlite_master")
+# res.fetchall()
 
-# # user_1 = ('123', 'haya', 'haya@gmail.com', 'password123')
-# # sql = ''' INSERT INTO USERS(ID,NAME,EMAIL,PASSWORD)
-# #             VALUES(?,?,?,?) '''
-# # cur = con.cursor()
-# # cur.execute(sql, user_1)
-# # con.commit()
+user_1 = ( 'haya ffff', 'WEWEW@gmail.com', 'PASSWORD')
+sql = ''' INSERT INTO USERS(NAME,EMAIL,PASSWORD)
+            VALUES(?,?,?) '''
+cur = con.cursor()
+cur.execute(sql, user_1)
+con.commit()
 
-# cur.execute("SELECT * FROM USERS")
-# rows = cur.fetchall()
-# for row in rows:
-#    print(row)
+cur.execute("SELECT * FROM USERS")
+rows = cur.fetchall()
+for row in rows:
+   print(row)
 
 
 
@@ -41,7 +41,7 @@ def create_connection(db_file):
 def create_table(con):
     cur = con.cursor()
     try:
-     cur.execute("CREATE TABLE USERS(ID, EMAIL, NAME, PASSWORD)")
+     cur.execute("CREATE TABLE USERS(ID INTEGER PRIMARY KEY, EMAIL TEXT, NAME TEXT, PASSWORD TEXT)")
     except Error as e:
      raise Exception(e)
     
@@ -77,7 +77,7 @@ def searchUser(email, con):
         cur.execute("SELECT NAME FROM USERS WHERE EMAIL=?", (email,))
         res = cur.fetchone()
     except Error as e:
-      raise Exception("Error had occured")
+      raise Exception(e)
     return res
     
 
