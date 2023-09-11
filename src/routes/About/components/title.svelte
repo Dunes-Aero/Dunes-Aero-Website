@@ -20,7 +20,7 @@
 	/* @import '//dunes-aero-website/src/app.css'; */
 
 	.title {
-		font-size: 40px;
+		font-size: 26px;
 		font-weight: 600;
 		text-transform: uppercase;
 		text-align: center;
@@ -29,14 +29,14 @@
 	/* Media query for small screens */
 	@media (max-width: 768px) {
 		.title {
-			font-size: 24px; /* Adjust the font size for small screens */
+			font-size: 18px; /* Adjust the font size for small screens */
 		}
 	}
 
 	/* Media query for large screens */
-	@media (min-width: 1300px) {
+	@media (min-width: 1280px) {
 		.title {
-			font-size: 48px; /* Adjust the font size for large screens */
+			font-size: 29px; /* Adjust the font size for large screens */
 		}
 	}
 </style>

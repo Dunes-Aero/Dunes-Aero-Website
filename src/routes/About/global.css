@@ -5,11 +5,11 @@
     margin: 0;
     padding: 0;
 }
-
 body {
-    line-height: 140.6%;
+    line-height: 1.5;
     color: #000000;
     overflow-x: hidden;
+    font-size: 18px;
 }
 
 ul {
@@ -21,4 +21,24 @@ ul {
     max-width: 100%;
     margin: 0 auto;
     padding: 0 15px;
+}
+
+/* Responsive font sizes using media queries */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 12px; /* Adjust font size for even smaller screens */
+    }
+}
+
+/* Font size for larger screens (adjust the min-width and font-size as needed) */
+@media (min-width: 1200px) {
+    body {
+        font-size: 20px; /* Adjust font size for larger screens */
+    }
 }
