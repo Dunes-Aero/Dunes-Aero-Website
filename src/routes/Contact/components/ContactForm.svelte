@@ -5,7 +5,7 @@
 	import DropDown from '$lib/components/DropDown.svelte';
 	import { validateEmail } from '$lib/utils/validation.js';
 	import ErrorField from '$lib/components/ErrorField.svelte';
-	import fireAlert from '$lib/utils/Alert.js'
+	import fireAlert from '$lib/utils/Alert.js';
 
 	let contactForm = {
 		first: { field: '', error: '' },
@@ -58,72 +58,78 @@
 
 		///Send the form content through email API
 		if (valid) {
-			try{
-			const res = await fetch('/Contact', {
-				method: 'POST',
-				body: JSON.stringify({ contactForm }),
-				headers: { 'Content-Type': 'application/json' }
-			});
-			fireAlert(1, 'email')
-		}
-			catch (error){
-				fireAlert(0, 'email')
-
+			try {
+				const res = await fetch('/Contact', {
+					method: 'POST',
+					body: JSON.stringify({ contactForm }),
+					headers: { 'Content-Type': 'application/json' }
+				});
+				fireAlert(1, 'email');
+			} catch (error) {
+				fireAlert(0, 'email');
 			}
-
 		}
 	}
 </script>
 
 <div
-	class="form-container h-[680px] xl:w-2/5 lg:w-3/5  w-11/12 bg-primary border-secondary border-2 p-5 round grid  items-center"
+	class="form-container md:h-[680px] xl:w-2/5 lg:w-3/5 w-11/12 bg-primary border-secondary border-2 p-5 round grid items-center"
 >
 	<form class="xl:w-5/6 w-full p-5" on:submit|preventDefault={submitHandler}>
 		<div
-			class={`grid grid-cols-2 justify-between gap-x-20 ${
-				{ valid } ? '' : 'grid-rows-3 gap-y-2 '
+			class={`w-max grid md:grid-cols-2 justify-between md:gap-x-20    ${
+				{ valid } ? ' md:gap-y-5' : 'md:grid-rows-3 md:gap-y-8'
 			}justify-between w-full lg:w-4/5 `}
 		>
-			<InputField
-				placeholder="First name"
-				name="first-name"
-				bind:value={contactForm.first.field}
-				type="text"
-				mode={true}>First Name</InputField
-			>
+			<div class="order-first w-max">
+				<InputField
+					placeholder="First name"
+					name="first-name"
+					bind:value={contactForm.first.field}
+					type="text"
+					mode={true}>First Name</InputField
+				>
+			</div>
+			<div class="order-3 md:order-2 w-max">
+				<InputField
+					placeholder="Last name"
+					name="last-name"
+					bind:value={contactForm.last.field}
+					type="text"
+					mode={true}>Last Name</InputField
+				>
+			</div>
 
-			<InputField
-				placeholder="Last name"
-				name="last-name"
-				bind:value={contactForm.last.field}
-				type="text"
-				mode={true}>Last Name</InputField
-			>
-			<ErrorField>{contactForm.first.error}</ErrorField>
-			<ErrorField>{contactForm.last.error}</ErrorField>
+			{#if !valid}
+				<div class="md:order-3 order-2 w-max"><ErrorField>{contactForm.first.error}</ErrorField></div>
+				<div class="md:order-4 order-3 w-max">
+					<ErrorField class="md:order-4 order-3">{contactForm.last.error}</ErrorField>
+				</div>
+			{/if}
+			<div class="order-5 w-max">
+				<InputField
+					placeholder="example@gmail.com"
+					bind:value={contactForm.email.field}
+					name="email"
+					type="email"
+					mode={true}>Email</InputField
+				>
+			</div>
+			<div class="md:order-6 order-7  w-max">
+				<InputField
+					placeholder="ABC Company"
+					bind:value={contactForm.company.field}
+					name="company"
+					type="company"
+					mode={true}>Company (Optional)</InputField
+				>
+			</div>
 
-			<InputField
-			placeholder="example@gmail.com"
-			bind:value={contactForm.email.field}
-			name="email"
-			type="email"
-			mode={true}>Email</InputField
-		>
-		
-
-		<InputField
-		placeholder="ABC Company"
-		bind:value={contactForm.company.field}
-		name="company"
-		type="company"
-		mode={true}>Company (Optional)</InputField
-	>
-	<ErrorField>{contactForm.email.error}</ErrorField>
-	<ErrorField>{contactForm.company.error}</ErrorField>
+			{#if !valid}
+				<div class="md:order-7 order-6 w-max"><ErrorField>{contactForm.email.error}</ErrorField></div>
+				<div class="order-last w-max"><ErrorField>{contactForm.company.error}</ErrorField></div>
+			{/if}
 		</div>
-
-
-
 
 		<DropDown bind:currentOption={contactForm.subject.field} {options}>Select Subject</DropDown>
 
@@ -136,7 +142,7 @@
 		<ErrorField>{contactForm.message.error}</ErrorField>
 		<input type="hidden" name="contactForm" bind:value={contactForm} />
 		<div class="flex justify-center w-full">
-			<Button type="submit" color=secondary>Send Message</Button>
+			<Button type="submit" color="secondary">Send Message</Button>
 		</div>
 	</form>
 </div>

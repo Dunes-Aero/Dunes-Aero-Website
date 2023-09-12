@@ -7,7 +7,8 @@
 
 </script>
 
-<section id="contact" class="h-screen flex items-center justify-center bg-primary">
+<section id="contact" class="md:h-screen flex items-center justify-center bg-primary p-2">
+	
 		<ContactInfo/>
 		<ContactForm />
 </section>
