@@ -1,4 +1,5 @@
 <!-- creat componants in svelte -->
+<!-- ? add the terms and condition error. -->
 <script>
 	import Unvisible from '$lib/assets/images/unvisible.svg';
 	import Visible from '$lib/assets/images/visible.svg';
