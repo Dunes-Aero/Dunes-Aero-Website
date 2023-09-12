@@ -1,6 +1,7 @@
 <script>
 	import Hero from './Hero/+page.svelte';
 	import About from './About/+page.svelte';
+	import DunesAeroADV from './DunesAeroADV/+page.svelte';
 	import Process from './Process/+page.svelte';
 	import Contact from './Contact/+page.svelte';
 	import Partners from './Partners/+page.svelte';
@@ -18,6 +19,7 @@
 
 	<Solutions />
 	<About />
+	<DunesAeroADV />
 	<Process />
 	<Partners />
 	<Contact />
