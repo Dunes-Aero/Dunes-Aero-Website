@@ -5,6 +5,7 @@
 	import Contact from './Contact/+page.svelte';
 	import Partners from './Partners/+page.svelte';
 	import Solutions from './Solutions/+page.svelte';
+	import Footer from './Footer/+page.svelte';
 
 
 	export let data=''
@@ -14,11 +15,13 @@
 <div class="main">
 
   <Hero />
-	<Partners />
+
 	<Solutions />
 	<About />
 	<Process />
+	<Partners />
 	<Contact />
+	<Footer/>
 
 </div>
 
