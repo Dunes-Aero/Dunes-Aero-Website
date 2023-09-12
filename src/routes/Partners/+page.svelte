@@ -1,9 +1,11 @@
 <script>
+	import Subtitle from "../../lib/components/Subtitle.svelte";
+
 </script>
 
-<section class="partners">
+<section id = "partners" class="partners">
 	<div class="slider">
-		<h1 class="title">OUR TRUSTED PARTNERS</h1>
+		<Subtitle>SUPPORTED BY</Subtitle>
 
 		<div class="slide-track">
 			<div class="slide">

@@ -4,7 +4,7 @@
 	import Line from './components/line.svelte';
 </script>
 
-<section
+<section id ="process"
 	class="our-process relative w-full pb-16 mx-auto bg-hero bg-no-repeat bg-cover bg-center items-center"
 >
 	<div class="lg:p-6 p-10">

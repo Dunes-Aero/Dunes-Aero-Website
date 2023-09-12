@@ -28,7 +28,7 @@ let activeSlide = 0; // Initialize the active slide
 
  </script>
 
-<section class="bg-primary h-screen">
+<section id = "solutions" class="bg-primary h-screen">
 	
 	<div class="header bg-primary">   
 	

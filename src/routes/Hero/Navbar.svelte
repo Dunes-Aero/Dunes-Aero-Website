@@ -4,6 +4,7 @@
 	import menu from '$lib/assets/images/menu.svg';
 	import close from '$lib/assets/images/close.svg';
 	import { goto } from '$app/navigation';
+	import scrollIntoView from '$lib/utils/scrollIntoView.js'
 
 	let routes = [
 		{ title: 'Solutions', id: 'solutions' },
@@ -14,22 +15,7 @@
 	let screenWidth;
 	let opened = true;
 
-	//Navigating to authentication pages functions
-	async function signup() {
-		goto('/Sign-up');
-	}
 
-	async function login() {
-		goto('/Sign-in');
-	}
-	//Scroll into view function
-	function scrollIntoView({ target }) {
-		const el = document.querySelector(target.getAttribute('href'));
-		if (!el) return;
-		el.scrollIntoView({
-			behavior: 'smooth'
-		});
-	}
 </script>
 
 <svelte:window bind:innerWidth={screenWidth} />
@@ -81,7 +67,7 @@
 
 			<!--Navbar in smaller screens-->
 		{:else}
-			<div class="md:hidden flex flex-1 justify-end items-center">
+			<div class="lg:hidden flex flex-1 justify-end items-center">
 				<!-- svelte-ignore a11y-click-events-have-key-events -->
 				<img
 					src={opened ? menu : close}

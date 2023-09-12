@@ -12,7 +12,7 @@
     const onInput = e => (value = e.target.value);
 </script>
 
-<div>
+<div class="w-max">
 	<label class={`block mb-2 text-md font-joseph font-meduium text-${color}`} for={name}>
 		<slot />
 	</label>
