@@ -40,7 +40,7 @@ let activeSlide = 0; // Initialize the active slide
 
 
 <div class="product bg-primary ">
-  <button class="pre-btn bg-primary-hover hover:bg-secondary-hover rounded" on:click={move}
+  <!-- <button class="pre-btn bg-primary-hover hover:bg-secondary-hover rounded" on:click={move}
   on:click={() => move('prev')}>
     
     <img src="src\lib\assets\images\right.svg" alt="">
@@ -49,49 +49,56 @@ let activeSlide = 0; // Initialize the active slide
   on:click={() => move('next')}>
     
     <img src="src\lib\assets\images\right.svg" alt="">
-  </button>
+  </button> -->
 
   <div class="product-container bg-primary">
-    <div class="flex" style="margin-right: 350px;">
-      <div class="product-card">
-        <img src="src\lib\assets\images\sol1.svg" class="product-thumb" alt="2">
-      </div>
-      <div class="product-card">
-        <img src="src\lib\assets\images\sol2.svg" class="product-thumb" alt="3">
-      </div>
-      <div class="product-card">
-        <img src="src\lib\assets\images\sol3.svg" class="product-thumb" alt="4">
-      </div>
-      <div class="product-card">
-        <img src="src\lib\assets\images\sol4.svg" class="product-thumb" alt="5">
-      </div>
-    </div>
+    <Carousel
+    autoplay
+    autoplayDuration={5000}
+    autoplayProgressVisible
+  >
 
-    <div class="flex " >
-      <div class="product-card">
-        <img src="src\lib\assets\images\sol5.svg" class="product-thumb" alt="s5">
-      </div>
-      <div class="product-card">
-        <img src="src\lib\assets\images\sol6.svg" class="product-thumb" alt="7">
-      </div>
-      <div class="product-card">
-        <img src="src\lib\assets\images\sol7.svg" class="product-thumb" alt="">
-      </div>
-      <div class="product-card">
-        <img src="src\lib\assets\images\sol8.svg" class="product-thumb" alt="">
-      </div>
+  <div class="flex" >
+    <div class="product-card">
+      <img src="src\lib\assets\images\sol1.svg" class="product-thumb" alt="2">
     </div>
-
-    <div class="flex ">
-      <div class="product-card">
-        <img src="src\lib\assets\images\sol9.svg" class="product-thumb" alt="">
-      </div>
-      <div class="product-card">
-        <img src="src\lib\assets\images\sol10.svg" class="product-thumb" alt="">
-      </div>
+    <div class="product-card">
+      <img src="src\lib\assets\images\sol2.svg" class="product-thumb" alt="3">
+    </div>
+    <div class="product-card">
+      <img src="src\lib\assets\images\sol3.svg" class="product-thumb" alt="4">
+    </div>
+    <div class="product-card">
+      <img src="src\lib\assets\images\sol4.svg" class="product-thumb" alt="5">
     </div>
   </div>
 
+  <div class="flex " >
+    <div class="product-card">
+      <img src="src\lib\assets\images\sol5.svg" class="product-thumb" alt="s5">
+    </div>
+    <div class="product-card">
+      <img src="src\lib\assets\images\sol6.svg" class="product-thumb" alt="7">
+    </div>
+    <div class="product-card">
+      <img src="src\lib\assets\images\sol7.svg" class="product-thumb" alt="">
+    </div>
+    <div class="product-card">
+      <img src="src\lib\assets\images\sol8.svg" class="product-thumb" alt="">
+    </div>
+  </div>
+
+  <div class="flex">
+    <div class="product-card">
+      <img src="src\lib\assets\images\sol9.svg" class="product-thumb" alt="">
+    </div>
+    <div class="product-card">
+      <img src="src\lib\assets\images\sol10.svg" class="product-thumb" alt="">
+    </div>
+  </div>
+</Carousel>
+</div>
+<!-- 
   <div class="indicator-container flex justify-center mt-4">
     {#each indicators as indicator, index}
       <span
@@ -99,7 +106,7 @@ let activeSlide = 0; // Initialize the active slide
         class:selected={index === activeSlide}
       ></span>
     {/each}
-  </div>
+  </div> -->
 </div>
 
 	<h6 class="xl:text-2xl lg:text-2xl text-1xl text-center text-secondary font-semibold my-10">Your vision, our flight - together.</h6>
