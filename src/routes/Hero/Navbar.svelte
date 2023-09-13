@@ -1,10 +1,11 @@
 <script>
 	import Button from '$lib/components/Button.svelte';
-	import logo from '$lib/assets/images/logo-light.png';
+	import logo from '$lib/assets/images/Logo.svg';
 	import menu from '$lib/assets/images/menu.svg';
 	import close from '$lib/assets/images/close.svg';
 	import { goto } from '$app/navigation';
-	import scrollIntoView from '$lib/utils/scrollIntoView.js'
+	import scrollIntoView from '$lib/utils/scrollIntoView.js';
+	import { onMount } from 'svelte';
 
 	let routes = [
 		{ title: 'Solutions', id: 'solutions' },
@@ -14,8 +15,17 @@
 	];
 	let screenWidth;
 	let opened = true;
+	let token;
 
+	onMount(() => {
+		token = localStorage.getItem('token');
 
+	});
+	$: token;
+	const removeToken = () => {
+		localStorage.clear();
+		token = null;
+	};
 </script>
 
 <svelte:window bind:innerWidth={screenWidth} />
@@ -42,26 +52,43 @@
 					{/each}
 				</ul>
 			</div>
+
 			<div class="float-right">
 				<ul class="list-none hidden lg:flex flex-row gap-6 py-5 float-right">
-					<li>
-						<Button
-							color=tertiary
-							on:navigate={() => {
-								goto('/Sign-up', { replaceState: true });
-							}}
-							outlined={false}>Sign Up</Button
-						>
-					</li>
-					<li>
-						<Button
-							color="secondary"
-							on:navigate={() => {
-								goto('/Sign-in', { replaceState: true });
-							}}
-							outlined={true}>Sign In</Button
-						>
-					</li>
+					
+					{#if token === null}
+						<li>
+							<Button
+								color="tertiary"
+								on:navigate={() => {
+									goto('/Sign-up');
+								}}
+								outlined={false}>Sign Up</Button
+							>
+						</li>
+						<li>
+							<Button
+								color="secondary"
+								on:navigate={() => {
+									goto('/Sign-in');
+								}}
+								outlined={true}
+							>
+								Sign In</Button
+							>
+						</li>
+					{:else}
+						<li>
+							<Button
+								color="secondary"
+								on:navigate={() => {
+									removeToken();
+								}}
+								outlined={true}>Logout</Button
+							>
+						</li>
+
+						<li />{/if}
 				</ul>
 			</div>
 

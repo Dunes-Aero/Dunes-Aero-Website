@@ -2,7 +2,8 @@
 <!-- !change the error to be under the input -->
 
 <script>
-	let email ='';
+	import { goto } from '$app/navigation';
+	let email = '';
 	let password = '';
 	let emailError = '';
 	let passwordError = '';
@@ -31,34 +32,50 @@
 		validateEmail();
 		validatePassword();
 
-		return (
-			!emailError &&
-			!passwordError
-		);
+		return !emailError && !passwordError;
 	}
 
-	function handleSubmit() {
+	async function handleSubmit() {
 		validateEmail();
 		validatePassword();
 
 		if (canSubmit()) {
-			alert('Form submitted successfully!');
+			await postLogin();
+			goto('/')
+		}
+	}
+
+	async function postLogin() {
+		const res = await fetch('http://127.0.0.1:8000/login/', {
+			method: 'POST',
+			body: JSON.stringify({ email, password }),
+			headers: {
+				'content-type': 'application/json'
+			}
+		});
+		const data = await res.json();
+		if (data.status === 200) {
+			const token = data.data.access_token;
+			console.log("tooooooooken is ignup", token)
+
+			localStorage.setItem('token', token);
 		}
 	}
 </script>
 
-
 <section class="font-mono mx-auto bg-primary h-screen my-auto flex items-center">
 	<!-- Container -->
-	<div class="container mx-auto">
-		<div class="flex justify-center px-6 h-screen">
+	<div class="container h-auto mx-auto">
+		<div class="flex justify-center px-6">
 			<!-- Row -->
 			<div class="w-full h-full xl:w-3/4 lg:w-11/12 flex">
 				<!-- Col -->
 				<div
 					class="w-full h-auto hidden lg:block lg:w-5/12 bg-cover rounded-l-lg border-secondary border-4"
 					style="background-image: url('/src/lib/assets/images/Signin.png')"
-				/>
+				>
+					<img src="/src/lib/assets/images/Signin.png" alt="da-logo" />
+				</div>
 				<!-- Col -->
 				<div class="w-full lg:w-7/12 bg-secondary p-5 rounded-lg lg:rounded-l-none">
 					<h3 class="pt-4 pl-7 text-2xl font-tenor mb-20">Sign In</h3>
@@ -72,6 +89,7 @@
 								id="email"
 								type="email"
 								placeholder="Email Address"
+								name="email"
 								bind:value={email}
 								on:input={validateEmail}
 							/>
@@ -96,12 +114,12 @@
 									class="w-full px-3 py-2 mb-3 text-sm leading-tight font-joseph font-semibold text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
 									id="password"
 									type="password"
+									name="password"
 									placeholder="Password"
 									bind:value={password}
 									on:input={validatePassword}
 								/>
 
-								
 								<img
 									src="src/lib/assets/images/visible.svg"
 									alt="Password Visibility Toggle"
@@ -134,8 +152,10 @@
 						<div class="mb-6 text-center">
 							<button
 								class="w-full px-4 py-2 font-bold font-tenor text-white bg-primary rounded-md hover:bg-primary-hover focus:outline-none focus:shadow-outline"
-								type="button"
-								on:click={handleSubmit}
+								type="submit"
+								on:click|preventDefault={() => {
+									handleSubmit();
+								}}
 							>
 								Sign In
 							</button>

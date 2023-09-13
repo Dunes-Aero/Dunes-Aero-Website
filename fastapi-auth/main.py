@@ -78,7 +78,7 @@ async def root(payload: dict = Body(...)):
 #check the db 
 @app.post("/signup/")
 async def root(payload: dict = Body(...)):
-    name = payload["name"]
+    name = payload["fullName"]
     email = payload["email"]
     password = payload["password"]
     try:
@@ -88,7 +88,8 @@ async def root(payload: dict = Body(...)):
          hashed_password = get_hashed_password(password)
          addUser(conn,name,hashed_password,email)
          token = await generate_token(email,password)
-         return token
+
+         return {'status':200, 'data':token}
       else  :
         return HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid email or password", 
                             headers={"WWW-Authenticate": "Bearer"})
@@ -118,6 +119,8 @@ async def token(payload: dict = Body(...)):
     access_token_expire= timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINS)
     access_token = create_access_token(data={"sub": user.email}, expire_delta=access_token_expire)
     return {"access_token": access_token, "token_type":"bearer"}
+
+
 
 
 
