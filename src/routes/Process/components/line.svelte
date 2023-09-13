@@ -3,14 +3,17 @@
 	import LineIcon from '$lib/assets/images/TimeLine.svg';
 </script>
 
-<div class="container mx-auto relative">
+<div class="">
 	<!-- Image container -->
-	<div class="grid justify-items-center">
+	<!-- <div class="flex justify-center">
+		<img src={LineIcon} alt="" class="w-5 line-small" />
+	</div> -->
+	<div class="">
 		<img src={LineIcon} alt="" class="w-5 line-small" />
 	</div>
 
 	<!-- Absolute positioning for the "Item" components -->
-	<div class="item-one absolute">
+	<!-- <div class="item-one absolute">
 		<Item isRightLeft="yes" textItems={['Contact Us']} iconName="contact" />
 	</div>
 	<div class="item-two absolute">
@@ -21,36 +24,32 @@
 	</div>
 	<div class="item-four absolute">
 		<Item textItems={['Order fulfilling and', 'support']} iconName="support" />
-	</div>
+	</div> -->
 </div>
 
 <style>
-	.item-one {
+	/* .item-one {
 		top: -38px;
 		right: 280px;
-		/* border: 1px beige solid; */
 	}
 	.item-two {
 		top: 77px;
 		left: 270px;
-		/* border: 1px beige solid; */
 	}
 	.item-three {
 		top: 222px;
 		right: 250px;
-		/* border: 1px beige solid; */
 	}
 	.item-four {
 		top: 346px;
 		left: 270px;
-		/* border: 1px beige solid; */
-	}
+	} */
 
 	@media (max-width: 768px) {
 		.line-small {
-			width: 15px;
+			/* width: 18px; */
 		}
-		.item-one {
+		/* .item-one { 
 			top: -20px;
 			right: 250px;
 		}
@@ -65,14 +64,14 @@
 		.item-four {
 			top: 265px;
 			left: 230px;
-		}
+		} */
 	}
 
 	@media (min-width: 1300px) {
 		.line-small {
 			width: 25px;
 		}
-		.item-one {
+		/* .item-one {
 			top: -40px;
 			right: 500px;
 		}
@@ -87,7 +86,6 @@
 		.item-four {
 			top: 440px;
 			left: 490px;
-		}
+		} */
 	}
-
 </style>
