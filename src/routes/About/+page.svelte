@@ -5,15 +5,13 @@
 
 <section
 	id="about"
-	class="main-page "
+	class="main-page about sm:h-screen bg-cover bg-center bg-no-repeat flex flex-col justify-center"
 >
-	<div class="about sm:h-screen bg-cover bg-center bg-no-repeat flex flex-col justify-center">
-		<div class="mb-4 text-center">
-			<Title pageTitle="About Us" elementHTML="h1" textColor="secondary" />
-		</div>
-		<div class="text-center">
-			<Desc />
-		</div>
+	<div class="mb-4 text-center">
+		<Title pageTitle="About Us" elementHTML="h1" textColor="secondary" />
+	</div>
+	<div class="text-center">
+		<Desc />
 	</div>
 </section>
 
@@ -25,7 +23,6 @@
 		/* padding: 75px;
         width: 100%; */
 	}
-
 
 	@media (max-width: 768px) {
 		.about {
