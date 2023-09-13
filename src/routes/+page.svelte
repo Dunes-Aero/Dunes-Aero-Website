@@ -6,6 +6,7 @@
 	import Partners from './Partners/+page.svelte';
 	import Solutions from './Solutions/+page.svelte';
 	import Footer from './Footer/+page.svelte';
+	import Mission from './Mission/+page.svelte';
 
 
 	export let data=''
@@ -18,6 +19,7 @@
 
 	<Solutions />
 	<About />
+	<Mission/>
 	<Process />
 	<Partners />
 	<Contact />
