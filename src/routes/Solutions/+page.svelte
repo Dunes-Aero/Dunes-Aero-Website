@@ -6,24 +6,7 @@
 	import { onMount } from 'svelte';
 	import { browser } from '$app/environment';
 
-  let boxEl;
-	let boxWidth;
-	// Add the observer when component mounts and cleanup after
-	onMount(() => {
-		const resizeObserver = new ResizeObserver((entries) => {
-			// We're only watching one element
-			const entry = entries.at(0);
-
-			//Get the block size
-			boxWidth = entry.contentBoxSize[0].blockSize;
-		});
-
-		resizeObserver.observe(boxEl);
-
-		// This callback cleans up the observer
-		return () => resizeObserver.unobserve(boxEl);
-	});
-
+ 
 // 	function move(){
 // 	const productContainers = [...document.querySelectorAll('.product-container')];
 // const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
@@ -73,7 +56,7 @@
     
     <img src="src\lib\assets\images\right.svg" alt="">
   </button> -->
-  {#if browser}
+
   <div class=" bg-primary">
     <Carousel
     particlesToShow={5}
@@ -117,7 +100,7 @@
 </Carousel>
 </div>
 
-{/if}
+
 <!-- 
   <div class="indicator-container flex justify-center mt-4">
     {#each indicators as indicator, index}

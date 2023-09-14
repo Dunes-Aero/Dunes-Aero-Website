@@ -9,26 +9,27 @@
 	import Footer from './Footer/+page.svelte';
 	import Mission from './Mission/+page.svelte';
 
+	export let data = '';
+	$: msg = JSON.stringify(data);
 
-	export let data=''
-	$:msg = JSON.stringify(data)
+	
+
 </script>
 
-<div class="main">
 
-  <Hero />
+	<div class="main">
+		<Hero />
 
-	<Solutions />
-	<About />
-	<DunesAeroADV />
-	<Mission/>
+		<Solutions />
+		<About />
+		<DunesAeroADV />
+		<Mission />
 
-	<Process />
-	<Partners />
-	<Contact />
-	<Footer/>
-
-</div>
+		<Process />
+		<Partners />
+		<Contact />
+		<Footer />
+	</div>
 
 <style lang="postcss">
 	:global(html) {

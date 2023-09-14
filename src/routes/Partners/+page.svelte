@@ -14,7 +14,7 @@
 			const entry = entries.at(0);
 
 			//Get the block size
-			boxWidth = entry.contentBoxSize[0].blockSize;
+			boxEl = entry.contentBoxSize[0].blockSize;
 		});
 
 		resizeObserver.observe(boxEl);
@@ -41,7 +41,7 @@
 				bind:this={boxEl}
 			 
 			>
-				<div class=" flex  ">
+				<div class=" flex sm:overflow-hidden  ">
 					<img src="src\lib\assets\images\GACA.svg" alt="logo" height="100" class="mx-8" width="250" />
 
 					<img src="src\lib\assets\images\KACST.svg" alt="logo" height="100" class="mx-8" width="250" />
