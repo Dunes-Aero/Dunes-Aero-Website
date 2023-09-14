@@ -2,11 +2,12 @@
 <!-- !finish the functunality of the slider indicator *circle* -->
 <script>
   import Carousel from 'svelte-carousel';
-	import ResizeObserver from 'resize-observer-polyfill';
-	import { onMount } from 'svelte';
+
 	import { browser } from '$app/environment';
 
- 
+	// Add the observer when component mounts and cleanup after
+
+
 // 	function move(){
 // 	const productContainers = [...document.querySelectorAll('.product-container')];
 // const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
@@ -56,7 +57,7 @@
     
     <img src="src\lib\assets\images\right.svg" alt="">
   </button> -->
-
+  {#if browser}
   <div class=" bg-primary">
     <Carousel
     particlesToShow={5}
@@ -100,7 +101,7 @@
 </Carousel>
 </div>
 
-
+{/if}
 <!-- 
   <div class="indicator-container flex justify-center mt-4">
     {#each indicators as indicator, index}
