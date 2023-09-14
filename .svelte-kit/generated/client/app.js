@@ -29,7 +29,7 @@ export const dictionary = {
 		"/Mission": [8],
 		"/Partners": [9],
 		"/Process": [10],
-		"/Sign-in": [~11],
+		"/Sign-in": [11],
 		"/Sign-up": [12],
 		"/Solutions": [13]
 	};

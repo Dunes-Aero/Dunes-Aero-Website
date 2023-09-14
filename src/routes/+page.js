@@ -1,3 +1,4 @@
+ 
 // /// The returned value of this function should act as a prop named 'data' for page.svelte
 // export const load = async (loadEvent) => {
 
@@ -15,3 +16,4 @@
 // 	const data = await res.json();
 // 	return data;
 // };
+

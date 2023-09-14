@@ -1,9 +1,9 @@
 <!-- creat componants in svelte -->
 <!-- ? add the terms and condition error. -->
 <script>
+	import { goto } from '$app/navigation';
 	import Unvisible from '$lib/assets/images/unvisible.svg';
 	import Visible from '$lib/assets/images/visible.svg';
-	
 
 	let fullName = '';
 	let email = '';
@@ -15,8 +15,6 @@
 	let passwordMatchError = '';
 	let passwordMissingError = ''; // New error message
 
-
-
 	function validateFullName() {
 		const fullNamePattern = /^[A-Za-z\s]+$/;
 		if (!fullName.match(fullNamePattern)) {
@@ -27,7 +25,7 @@
 	}
 
 	function validateEmail() {
-		const emailPattern =  /^[^\s@]+@gmail\.com$/;
+		const emailPattern = /^[^\s@]+@gmail\.com$/;
 		if (!email.match(emailPattern)) {
 			emailError = 'Email must end with @gmail.com';
 		} else {
@@ -38,7 +36,8 @@
 	function validatePassword() {
 		const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 		if (!password.match(passwordPattern)) {
-			passwordMissingError = 'Password must be at least 8 characters long and contain both letters and numbers.';
+			passwordMissingError =
+				'Password must be at least 8 characters long and contain both letters and numbers.';
 		} else {
 			passwordMissingError = '';
 		}
@@ -66,7 +65,7 @@
 		);
 	}
 
-	function handleSubmit() {
+	async function handleSubmit() {
 		validateFullName();
 		validateEmail();
 		validatePassword();
@@ -74,13 +73,27 @@
 
 		if (canSubmit()) {
 			// Form is valid, you can proceed with form submission or other actions here
-			alert('Form submitted successfully!');
+			await postSignup();
+			goto('/')
 		}
 	}
 
+	async function postSignup() {
+		const res = await fetch('http://127.0.0.1:8000/signup/', {
+			method: 'POST',
+			body: JSON.stringify({ email, password, fullName }),
+			headers: {
+				'content-type': 'application/json'
+			}
+		});
+		const data = await res.json();
+		if (data.status === 200) {
+			const token = data.data.access_token;
+
+			localStorage.setItem('token', token);
+		}
+	}
 </script>
-
-
 
 <section class="font-mono mx-auto bg-primary h-screen my-auto flex items-center">
 	<!-- Container -->
@@ -163,7 +176,6 @@
 										placeholder="Password"
 										bind:value={password}
 										on:input={validatePasswordMatch}
-										
 									/>
 									<img
 										src={Visible}
@@ -172,9 +184,10 @@
 										id="eyeicon"
 									/>
 								</div>
-								{#if fullNameError} <!--!check this -->
-								<p class="text-red-500 text-sm font-joseph">{passwordMissingError}</p>
-							{/if}
+								{#if fullNameError}
+									<!--!check this -->
+									<p class="text-red-500 text-sm font-joseph">{passwordMissingError}</p>
+								{/if}
 							</div>
 							<div class="md:ml-2 w-full md:w-1/2">
 								<!-- Adjust width here -->
@@ -201,8 +214,8 @@
 									/>
 								</div>
 								{#if passwordMatchError}
-								<p class="text-red-500 text-sm font-joseph">{passwordMatchError}</p>
-							{/if}
+									<p class="text-red-500 text-sm font-joseph">{passwordMatchError}</p>
+								{/if}
 							</div>
 						</div>
 
@@ -253,94 +266,87 @@
 		</div>
 	</div>
 
-
-
 	<script>
 		let unvisibleButton = '/src/lib/assets/images/unvisible.svg';
 		let visibleButton = '/src/lib/assets/images/visible.svg';
 
-		let eyeicon = document.getElementById("eyeicon");
-		let password = document.getElementById("password");
+		let eyeicon = document.getElementById('eyeicon');
+		let password = document.getElementById('password');
 
 		eyeicon.onclick = function () {
-			if (password.type === "password") {
-				password.type = "text";
+			if (password.type === 'password') {
+				password.type = 'text';
 				eyeicon.src = unvisibleButton;
 			} else {
-				password.type = "password";
+				password.type = 'password';
 				eyeicon.src = visibleButton;
 			}
-		}
+		};
 
-		let c_eyeicon = document.getElementById("c_eyeicon");
-		let c_password = document.getElementById("c_password");
+		let c_eyeicon = document.getElementById('c_eyeicon');
+		let c_password = document.getElementById('c_password');
 
 		c_eyeicon.onclick = function () {
-			if (c_password.type === "password") {
-				c_password.type = "text";
+			if (c_password.type === 'password') {
+				c_password.type = 'text';
 				c_eyeicon.src = unvisibleButton;
 			} else {
-				c_password.type = "password";
+				c_password.type = 'password';
 				c_eyeicon.src = visibleButton;
 			}
-		}
-
-
+		};
 
 		// this code is for validation
-	// 	let fullName = '';
-	// let email = '';
-	// let password = '';
-	// let c_password = '';
+		// 	let fullName = '';
+		// let email = '';
+		// let password = '';
+		// let c_password = '';
 
-	// let fullNameError = '';
-	// let passwordMatchError = '';
+		// let fullNameError = '';
+		// let passwordMatchError = '';
 
-	// const unvisibleButton = '/src/lib/assets/images/unvisible.svg';
-	// const visibleButton = '/src/lib/assets/images/visible.svg';
+		// const unvisibleButton = '/src/lib/assets/images/unvisible.svg';
+		// const visibleButton = '/src/lib/assets/images/visible.svg';
 
-	// function togglePasswordVisibility(inputId, eyeIconId) {
-	// 	const input = document.getElementById(inputId);
-	// 	const eyeIcon = document.getElementById(eyeIconId);
+		// function togglePasswordVisibility(inputId, eyeIconId) {
+		// 	const input = document.getElementById(inputId);
+		// 	const eyeIcon = document.getElementById(eyeIconId);
 
-	// 	if (input.type === 'password') {
-	// 		input.type = 'text';
-	// 		eyeIcon.src = unvisibleButton;
-	// 	} else {
-	// 		input.type = 'password';
-	// 		eyeIcon.src = visibleButton;
-	// 	}
-	// }
+		// 	if (input.type === 'password') {
+		// 		input.type = 'text';
+		// 		eyeIcon.src = unvisibleButton;
+		// 	} else {
+		// 		input.type = 'password';
+		// 		eyeIcon.src = visibleButton;
+		// 	}
+		// }
 
-	// function validateFullName() {
-	// 	const fullNamePattern = /^[A-Za-z\s]+$/;
-	// 	if (!fullName.match(fullNamePattern)) {
-	// 		fullNameError = 'Full Name cannot contain numbers or special characters.';
-	// 	} else {
-	// 		fullNameError = '';
-	// 	}
-	// }
+		// function validateFullName() {
+		// 	const fullNamePattern = /^[A-Za-z\s]+$/;
+		// 	if (!fullName.match(fullNamePattern)) {
+		// 		fullNameError = 'Full Name cannot contain numbers or special characters.';
+		// 	} else {
+		// 		fullNameError = '';
+		// 	}
+		// }
 
-	// function validatePasswordMatch() {
-	// 	if (password !== c_password) {
-	// 		passwordMatchError = 'Passwords do not match.';
-	// 	} else {
-	// 		passwordMatchError = '';
-	// 	}
-	// }
+		// function validatePasswordMatch() {
+		// 	if (password !== c_password) {
+		// 		passwordMatchError = 'Passwords do not match.';
+		// 	} else {
+		// 		passwordMatchError = '';
+		// 	}
+		// }
 
-	// function handleSubmit() {
-	// 	validateFullName();
-	// 	validatePasswordMatch();
+		// function handleSubmit() {
+		// 	validateFullName();
+		// 	validatePasswordMatch();
 
-	// 	// Check if there are any validation errors
-	// 	if (!fullNameError && !passwordMatchError) {
-	// 		// Form is valid, you can proceed with form submission or other actions here
-	// 		alert('Form submitted successfully!');
-	// 	}
-	// }
-
+		// 	// Check if there are any validation errors
+		// 	if (!fullNameError && !passwordMatchError) {
+		// 		// Form is valid, you can proceed with form submission or other actions here
+		// 		alert('Form submitted successfully!');
+		// 	}
+		// }
 	</script>
-
-
 </section>

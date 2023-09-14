@@ -20,8 +20,9 @@
 
 	<Solutions />
 	<About />
-	<Mission/>
 	<DunesAeroADV />
+	<Mission/>
+
 	<Process />
 	<Partners />
 	<Contact />
