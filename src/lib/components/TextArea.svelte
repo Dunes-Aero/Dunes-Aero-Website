@@ -10,10 +10,10 @@
 
 
 <div>
-    <label class={`block mb-2 text-md w-full font-joseph font-meduium text-${color}`} for={name}><slot/></label>
+    <label class={`block mb-2 text-sm w-full font-joseph font-meduium text-${color}`} for={name}><slot/></label>
    
     <textarea id={name} name={name} rows="4"  {placeholder}  on:input={onInput}
-    class={`bg-transparent px-3 py-2 mb-3 text-md leading-tight font-joseph font-medium text-${color} border-b border-${color} rounded shadow appearance-none focus:outline-none focus:shadow-outline`}
+    class={`bg-transparent px-3 py-2 mb-3 text-sm leading-tight font-joseph font-medium text-${color} border-b border-${color} rounded shadow appearance-none focus:outline-none focus:shadow-outline`}
     />
        
        

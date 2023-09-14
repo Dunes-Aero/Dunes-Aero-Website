@@ -20,7 +20,7 @@
 </script>
 
 <div class="relative inline-block text-left mb-10">
-	<label class={`block mb-2 text-md font-joseph font-meduium text-${color}`}>
+	<label class={`block mb-2 text-sm font-joseph font-meduium text-${color}`}>
 		<slot />
 	</label>
 	<div>

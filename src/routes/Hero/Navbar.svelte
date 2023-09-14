@@ -11,7 +11,8 @@
 		{ title: 'Solutions', id: 'solutions' },
 		{ title: 'About Us', id: 'about' },
 		{ title: 'Order Process', id: 'process' },
-		{ title: 'Contact Us', id: 'contact' }
+		{ title: 'Contact Us', id: 'contact' },
+		{ title: 'Prodcuts', id: 'products' }
 	];
 	let screenWidth;
 	let opened = true;

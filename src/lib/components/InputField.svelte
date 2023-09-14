@@ -13,14 +13,14 @@
 </script>
 
 <div class="w-max">
-	<label class={`block mb-2 text-md font-joseph font-meduium text-${color}`} for={name}>
+	<label class={`block mb-2 text-sm font-joseph font-meduium text-${color}`} for={name}>
 		<slot />
 	</label>
 	<input
 		use:typeAction
 		{value}
         on:input={onInput}
-		class={`bg-transparent px-3 py-2 mb-3 text-md leading-tight font-joseph font-medium text-${color} border-b border-${color} rounded shadow appearance-none focus:outline-none focus:shadow-outline`}
+		class={`bg-transparent px-3 py-2 mb-3 text-sm leading-tight font-joseph font-medium text-${color} border-b border-${color} rounded shadow appearance-none focus:outline-none focus:shadow-outline`}
 		id={name}
 		{placeholder}
 	/>
