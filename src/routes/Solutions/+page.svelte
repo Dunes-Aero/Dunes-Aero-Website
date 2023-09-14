@@ -1,27 +1,50 @@
 <!-- !solve the solution problem *we want the images to be responsive* -->
 <!-- !finish the functunality of the slider indicator *circle* -->
 <script>
-	function move(){
-	const productContainers = [...document.querySelectorAll('.product-container')];
-const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
-const preBtn = [...document.querySelectorAll('.pre-btn')];
+  import Carousel from 'svelte-carousel';
+	import ResizeObserver from 'resize-observer-polyfill';
+	import { onMount } from 'svelte';
+	import { browser } from '$app/environment';
 
-productContainers.forEach((item, i) => {
-    let containerDimensions = item.getBoundingClientRect();
-    let containerWidth = containerDimensions.width ;
+  let boxEl;
+	let boxWidth;
+	// Add the observer when component mounts and cleanup after
+	onMount(() => {
+		const resizeObserver = new ResizeObserver((entries) => {
+			// We're only watching one element
+			const entry = entries.at(0);
 
-    nxtBtn[i].addEventListener('click', () => {
-        item.scrollLeft += containerWidth;
-    })
+			//Get the block size
+			boxWidth = entry.contentBoxSize[0].blockSize;
+		});
 
-    preBtn[i].addEventListener('click', () => {
-        item.scrollLeft -= containerWidth;
-    })
-})
-}
+		resizeObserver.observe(boxEl);
 
-let activeSlide = 0; // Initialize the active slide
-  let indicators = [0, 1, 2]; // Number of slides
+		// This callback cleans up the observer
+		return () => resizeObserver.unobserve(boxEl);
+	});
+
+// 	function move(){
+// 	const productContainers = [...document.querySelectorAll('.product-container')];
+// const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
+// const preBtn = [...document.querySelectorAll('.pre-btn')];
+
+// productContainers.forEach((item, i) => {
+//     let containerDimensions = item.getBoundingClientRect();
+//     let containerWidth = containerDimensions.width ;
+
+//     nxtBtn[i].addEventListener('click', () => {
+//         item.scrollLeft += containerWidth;
+//     })
+
+//     preBtn[i].addEventListener('click', () => {
+//         item.scrollLeft -= containerWidth;
+//     })
+// })
+// }
+
+// let activeSlide = 0; // Initialize the active slide
+//   let indicators = [0, 1, 2]; // Number of slides
 
   
 
@@ -39,7 +62,7 @@ let activeSlide = 0; // Initialize the active slide
 </div>
 
 
-<div class="product bg-primary ">
+<div class=" bg-primary ">
   <!-- <button class="pre-btn bg-primary-hover hover:bg-secondary-hover rounded" on:click={move}
   on:click={() => move('prev')}>
     
@@ -50,54 +73,51 @@ let activeSlide = 0; // Initialize the active slide
     
     <img src="src\lib\assets\images\right.svg" alt="">
   </button> -->
-
-  <div class="product-container bg-primary">
+  {#if browser}
+  <div class=" bg-primary">
     <Carousel
-    autoplay
-    autoplayDuration={5000}
-    autoplayProgressVisible
+    particlesToShow={5}
+    particlesToScroll={2}
   >
-
-  <div class="flex" >
-    <div class="product-card">
+ 
+     
       <img src="src\lib\assets\images\sol1.svg" class="product-thumb" alt="2">
-    </div>
-    <div class="product-card">
+     
+     
       <img src="src\lib\assets\images\sol2.svg" class="product-thumb" alt="3">
-    </div>
-    <div class="product-card">
+     
+     
       <img src="src\lib\assets\images\sol3.svg" class="product-thumb" alt="4">
-    </div>
-    <div class="product-card">
+     
+   
       <img src="src\lib\assets\images\sol4.svg" class="product-thumb" alt="5">
-    </div>
-  </div>
+    
+ 
 
-  <div class="flex " >
-    <div class="product-card">
+  
       <img src="src\lib\assets\images\sol5.svg" class="product-thumb" alt="s5">
-    </div>
-    <div class="product-card">
+     
+     
       <img src="src\lib\assets\images\sol6.svg" class="product-thumb" alt="7">
-    </div>
-    <div class="product-card">
+     
+     
       <img src="src\lib\assets\images\sol7.svg" class="product-thumb" alt="">
-    </div>
-    <div class="product-card">
+     
+     
       <img src="src\lib\assets\images\sol8.svg" class="product-thumb" alt="">
-    </div>
-  </div>
-
-  <div class="flex">
-    <div class="product-card">
+     
+ 
+  
       <img src="src\lib\assets\images\sol9.svg" class="product-thumb" alt="">
-    </div>
-    <div class="product-card">
+     
+     
       <img src="src\lib\assets\images\sol10.svg" class="product-thumb" alt="">
-    </div>
-  </div>
+     
+  
 </Carousel>
 </div>
+
+{/if}
 <!-- 
   <div class="indicator-container flex justify-center mt-4">
     {#each indicators as indicator, index}
@@ -113,7 +133,7 @@ let activeSlide = 0; // Initialize the active slide
 
 
 
-  <script>
+  <!-- <script>
     // --------------------------
 
 let activeSlide = 0; // Initialize the active slide
@@ -137,7 +157,7 @@ let activeSlide = 0; // Initialize the active slide
 
 
   
-  </script>
+  </script> -->
 </section>
 	 
  
@@ -212,10 +232,6 @@ height:780px; this will keep the scroling bar showing on the left so we will use
 
 .product-thumb {
 
- 
-  width: 224px;
-  height: 230px;
-  object-fit: cover;
   
 }
 
