@@ -1,34 +1,62 @@
 <script>
-	import Subtitle from "../../lib/components/Subtitle.svelte";
+	import Subtitle from '../../lib/components/Subtitle.svelte';
+	import Carousel from 'svelte-carousel';
+	import ResizeObserver from 'resize-observer-polyfill';
+	import { onMount } from 'svelte';
+	import { browser } from '$app/environment';
 
+	let boxEl;
+	let boxWidth;
+	// Add the observer when component mounts and cleanup after
+	onMount(() => {
+		const resizeObserver = new ResizeObserver((entries) => {
+			// We're only watching one element
+			const entry = entries.at(0);
+
+			//Get the block size
+			boxWidth = entry.contentBoxSize[0].blockSize;
+		});
+
+		resizeObserver.observe(boxEl);
+
+		// This callback cleans up the observer
+		return () => resizeObserver.unobserve(boxEl);
+	});
 </script>
 
-<section id = "partners" class="partners">
-	<div class="slider">
-		<Subtitle>SUPPORTED BY</Subtitle>
+{#if browser}
+	<section id="partners" class="partners">
+		<div class="slider">
+			<Subtitle>SUPPORTED BY</Subtitle>
 
-		<div class="slide-track">
-			<div class="slide">
-				<img src="src\lib\assets\images\GACA.svg" alt="logo" height="100" width="250" />
-			</div>
-			<div class="slide">
-				<img src="src\lib\assets\images\KACST.svg" alt="logo" height="100" width="250" />
-			</div>
-			<div class="slide">
-				<img src="src\lib\assets\images\MCIT.svg" alt="logo" height="100" width="250" />
-			</div>
-			<div class="slide">
-				<img src="src\lib\assets\images\NTDP.svg" alt="logo" height="100" width="250" />
-			</div>
-			<div class="slide">
-				<img src="src\lib\assets\images\SFCPD.svg" alt="logo" height="100" width="250" />
-			</div>
-			<div class="slide">
-				<img src="src\lib\assets\images\GACA.svg" alt="logo" height="100" width="250" />
-			</div>
+			<Carousel
+				autoplayDuration={10}
+				duration={5000}
+				autoplay
+				timingFunction="linear"
+				dots={false}
+				arrows={false}
+				swiping={false}
+				infinite={true}
+				bind:this={boxEl}
+			 
+			>
+				<div class=" flex  ">
+					<img src="src\lib\assets\images\GACA.svg" alt="logo" height="100" class="mx-8" width="250" />
+
+					<img src="src\lib\assets\images\KACST.svg" alt="logo" height="100" class="mx-8" width="250" />
+
+					<img src="src\lib\assets\images\MCIT.svg" alt="logo" height="100" class="mx-8" width="250" />
+
+					<img src="src\lib\assets\images\NTDP.svg" alt="logo" height="100" class="mx-8" width="250" />
+
+					<img src="src\lib\assets\images\SFCPD.svg" alt="logo" height="100" class="mx-8" width="250" />
+
+				</div>
+			</Carousel>
 		</div>
-	</div>
-</section>
+	</section>
+{/if}
 
 <style>
 	.title {
@@ -38,38 +66,14 @@
 		font-weight: 600;
 	}
 
-	@keyframes scroll {
-		0% {
-			transform: translateX(0);
-		}
-		90% {
-			transform: translateX(calc(-70px * 7));
-		}
-	}
-
 	.slider {
 		height: 235px;
 		margin: auto;
 		overflow: hidden;
 		position: relative;
-		width: auto;
+
 		background-color: var(--color-secondary);
 	}
-
-	.slider .slide-track {
-		display: inline;
-
-		animation: scroll 30s linear infinite;
-
-		display: flex;
-		white-space: nowrap;
-		width: calc(250px * 10);
-	}
-	.slider .slide {
-		height: 200px;
-		width: 450px;
-		margin: 0 20px;
-
-		padding: 40px 0;
-	}
+ 
+ 
 </style>
