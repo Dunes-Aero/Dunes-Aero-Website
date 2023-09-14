@@ -104,7 +104,7 @@
 				<!-- Col -->
 				<div
 					class="w-full h-auto hidden lg:block lg:w-5/12 bg-cover rounded-l-lg border-secondary border-4"
-					style="background-image: url('/src/lib/assets/images/Signin.png')"
+					style="background-image: url('$lib/assets/images/Signin.png')"
 				/>
 				<!-- Col -->
 				<div class="w-full lg:w-7/12 bg-secondary p-5 rounded-lg lg:rounded-l-none">
@@ -207,7 +207,7 @@
 										on:input={validatePasswordMatch}
 									/>
 									<img
-										src="/src/lib/assets/images/visible.svg"
+										src="$lib/assets/images/visible.svg"
 										alt="Password Visibility Toggle"
 										class="absolute top-1/3 right-3 transform -translate-y-1/2 cursor-pointer toggle-password"
 										id="c_eyeicon"
@@ -267,8 +267,8 @@
 	</div>
 
 	<script>
-		let unvisibleButton = '/src/lib/assets/images/unvisible.svg';
-		let visibleButton = '/src/lib/assets/images/visible.svg';
+		let unvisibleButton = '$lib/assets/images/unvisible.svg';
+		let visibleButton = '$lib/assets/images/visible.svg';
 
 		let eyeicon = document.getElementById('eyeicon');
 		let password = document.getElementById('password');

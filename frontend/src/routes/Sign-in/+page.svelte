@@ -3,10 +3,26 @@
 
 <script>
 	import { goto } from '$app/navigation';
+	import signin from '$lib/assets/images/Signin.png';
+	import unvisibleButton from '$lib/assets/images/unvisible.svg';
+	import visibleButton from '$lib/assets/images/visible.svg';
+
 	let email = '';
 	let password = '';
 	let emailError = '';
 	let passwordError = '';
+	let visibility = visibleButton;
+	let passType = 'password';
+	let eyeicon = document.getElementById('eyeicon');
+
+	function togglePassword() {
+		visibility = visibility === visibleButton ? unvisibleButton : visibleButton;
+		passType = passType === 'password' ? 'text' : 'password';
+	}
+
+	function typeAction(node) {
+        node.type = type;
+    }
 
 	function validateEmail() {
 		const email = document.getElementById('email').value;
@@ -41,7 +57,7 @@
 
 		if (canSubmit()) {
 			await postLogin();
-			goto('/')
+			goto('/');
 		}
 	}
 
@@ -56,7 +72,7 @@
 		const data = await res.json();
 		if (data.status === 200) {
 			const token = data.data.access_token;
-			console.log("tooooooooken is ignup", token)
+			console.log('tooooooooken is ignup', token);
 
 			localStorage.setItem('token', token);
 		}
@@ -72,9 +88,8 @@
 				<!-- Col -->
 				<div
 					class="w-full h-auto hidden lg:block lg:w-5/12 bg-cover rounded-l-lg border-secondary border-4"
-					style="background-image: url('/src/lib/assets/images/Signin.png')"
 				>
-					<img src="/src/lib/assets/images/Signin.png" alt="da-logo" />
+					<img src={signin} alt="da-logo" />
 				</div>
 				<!-- Col -->
 				<div class="w-full lg:w-7/12 bg-secondary p-5 rounded-lg lg:rounded-l-none">
@@ -110,21 +125,37 @@
 							</label>
 
 							<div class="relative">
+								{#if passType==='password'}
 								<input
 									class="w-full px-3 py-2 mb-3 text-sm leading-tight font-joseph font-semibold text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
 									id="password"
-									type="password"
+									type='password'
 									name="password"
 									placeholder="Password"
 									bind:value={password}
 									on:input={validatePassword}
 								/>
+								{:else}
+								<input
+								class="w-full px-3 py-2 mb-3 text-sm leading-tight font-joseph font-semibold text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+								id="password"
+								type='text'
+								name="password"
+								placeholder="Password"
+								bind:value={password}
+								on:input={validatePassword}
+							/>
+							{/if}
 
+								<!-- svelte-ignore a11y-click-events-have-key-events -->
 								<img
-									src="src/lib/assets/images/visible.svg"
+									src={visibility}
 									alt="Password Visibility Toggle"
 									class="absolute top-1/3 right-3 transform -translate-y-1/2 cursor-pointer"
 									id="eyeicon"
+									on:click={() => {
+										togglePassword();
+									}}
 								/>
 							</div>
 							{#if passwordError}
@@ -182,21 +213,4 @@
 			</div>
 		</div>
 	</div>
-
-	<script>
-		let eyeicon = document.getElementById('eyeicon');
-		let password = document.getElementById('password');
-		let unvisibleButton = '/src/lib/assets/images/unvisible.svg';
-		let visibleButton = '/src/lib/assets/images/visible.svg';
-
-		eyeicon.onclick = function () {
-			if (password.type === 'password') {
-				password.type = 'text';
-				eyeicon.src = unvisibleButton;
-			} else {
-				password.type = 'password';
-				eyeicon.src = visibleButton;
-			}
-		};
-	</script>
 </section>

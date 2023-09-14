@@ -13,7 +13,7 @@
 
 <style>
 	.bg-hero {
-		background-image: url('./src/lib/assets/images/hero-bg.png');
+		background-image: url('$lib/assets/images/hero-bg.png');
 		background-color: black;
 	}
 </style>

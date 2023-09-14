@@ -1,6 +1,6 @@
 <script>
 	import Item from './item.svelte';
-	import LineIcon from '$lib/assets/images/TimeLine.svg';
+	import LineIcon from '$lib/assets/images/Timeline.svg';
 </script>
 
 <div class="">

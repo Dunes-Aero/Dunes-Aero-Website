@@ -26,6 +26,8 @@
  * ```
  */
 declare module '$env/static/private' {
+	export const CONTACT_GOOGLE_EMAIL: string;
+	export const CONTACT_GOOGLE_PASSWORD: string;
 	export const ALLUSERSPROFILE: string;
 	export const APPDATA: string;
 	export const ChocolateyInstall: string;
@@ -37,18 +39,22 @@ declare module '$env/static/private' {
 	export const CommonProgramW6432: string;
 	export const COMPUTERNAME: string;
 	export const ComSpec: string;
+	export const CUDA_PATH: string;
+	export const CUDA_PATH_V11_0: string;
+	export const CUDA_PATH_V11_2: string;
+	export const CUDA_PATH_V11_7: string;
+	export const CUDA_PATH_V12_1: string;
 	export const DriverData: string;
 	export const EDITOR: string;
-	export const EFC_6940: string;
+	export const FPS_BROWSER_APP_PROFILE_STRING: string;
+	export const FPS_BROWSER_USER_PROFILE_STRING: string;
 	export const GIT_ASKPASS: string;
 	export const HOME: string;
 	export const HOMEDRIVE: string;
 	export const HOMEPATH: string;
 	export const INIT_CWD: string;
-	export const JAVA_HOME: string;
 	export const LANG: string;
 	export const LOCALAPPDATA: string;
-	export const LOCAL_GIT_DIRECTORY: string;
 	export const LOGONSERVER: string;
 	export const NODE: string;
 	export const NODE_ENV: string;
@@ -65,6 +71,7 @@ declare module '$env/static/private' {
 	export const npm_config_node_gyp: string;
 	export const npm_config_noproxy: string;
 	export const npm_config_prefix: string;
+	export const npm_config_registry: string;
 	export const npm_config_userconfig: string;
 	export const npm_config_user_agent: string;
 	export const npm_execpath: string;
@@ -76,8 +83,18 @@ declare module '$env/static/private' {
 	export const npm_package_version: string;
 	export const NPM_PREFIX_NPM_CLI_JS: string;
 	export const NUMBER_OF_PROCESSORS: string;
+	export const NVCUDASAMPLES10_1_ROOT: string;
+	export const NVCUDASAMPLES11_0_ROOT: string;
+	export const NVCUDASAMPLES11_2_ROOT: string;
+	export const NVCUDASAMPLES_ROOT: string;
+	export const NVM_HOME: string;
+	export const NVM_SYMLINK: string;
+	export const NVTOOLSEXT_PATH: string;
 	export const OneDrive: string;
-	export const OneDriveConsumer: string;
+	export const OPENCL_BIN: string;
+	export const OPENCL_INC: string;
+	export const OPENCL_LIB32: string;
+	export const OPENCL_LIB64: string;
 	export const ORIGINAL_XDG_CURRENT_DESKTOP: string;
 	export const OS: string;
 	export const Path: string;
@@ -98,6 +115,7 @@ declare module '$env/static/private' {
 	export const TEMP: string;
 	export const TERM_PROGRAM: string;
 	export const TERM_PROGRAM_VERSION: string;
+	export const TESSDATA_PREFIX: string;
 	export const TMP: string;
 	export const USERDOMAIN: string;
 	export const USERDOMAIN_ROAMINGPROFILE: string;
@@ -108,9 +126,7 @@ declare module '$env/static/private' {
 	export const VSCODE_GIT_ASKPASS_NODE: string;
 	export const VSCODE_GIT_IPC_HANDLE: string;
 	export const VSCODE_INJECTION: string;
-	export const VSCODE_NONCE: string;
 	export const windir: string;
-	export const ZES_ENABLE_SYSMAN: string;
 }
 
 /**
@@ -140,6 +156,8 @@ declare module '$env/static/public' {
  */
 declare module '$env/dynamic/private' {
 	export const env: {
+		CONTACT_GOOGLE_EMAIL: string;
+		CONTACT_GOOGLE_PASSWORD: string;
 		ALLUSERSPROFILE: string;
 		APPDATA: string;
 		ChocolateyInstall: string;
@@ -151,18 +169,22 @@ declare module '$env/dynamic/private' {
 		CommonProgramW6432: string;
 		COMPUTERNAME: string;
 		ComSpec: string;
+		CUDA_PATH: string;
+		CUDA_PATH_V11_0: string;
+		CUDA_PATH_V11_2: string;
+		CUDA_PATH_V11_7: string;
+		CUDA_PATH_V12_1: string;
 		DriverData: string;
 		EDITOR: string;
-		EFC_6940: string;
+		FPS_BROWSER_APP_PROFILE_STRING: string;
+		FPS_BROWSER_USER_PROFILE_STRING: string;
 		GIT_ASKPASS: string;
 		HOME: string;
 		HOMEDRIVE: string;
 		HOMEPATH: string;
 		INIT_CWD: string;
-		JAVA_HOME: string;
 		LANG: string;
 		LOCALAPPDATA: string;
-		LOCAL_GIT_DIRECTORY: string;
 		LOGONSERVER: string;
 		NODE: string;
 		NODE_ENV: string;
@@ -179,6 +201,7 @@ declare module '$env/dynamic/private' {
 		npm_config_node_gyp: string;
 		npm_config_noproxy: string;
 		npm_config_prefix: string;
+		npm_config_registry: string;
 		npm_config_userconfig: string;
 		npm_config_user_agent: string;
 		npm_execpath: string;
@@ -190,8 +213,18 @@ declare module '$env/dynamic/private' {
 		npm_package_version: string;
 		NPM_PREFIX_NPM_CLI_JS: string;
 		NUMBER_OF_PROCESSORS: string;
+		NVCUDASAMPLES10_1_ROOT: string;
+		NVCUDASAMPLES11_0_ROOT: string;
+		NVCUDASAMPLES11_2_ROOT: string;
+		NVCUDASAMPLES_ROOT: string;
+		NVM_HOME: string;
+		NVM_SYMLINK: string;
+		NVTOOLSEXT_PATH: string;
 		OneDrive: string;
-		OneDriveConsumer: string;
+		OPENCL_BIN: string;
+		OPENCL_INC: string;
+		OPENCL_LIB32: string;
+		OPENCL_LIB64: string;
 		ORIGINAL_XDG_CURRENT_DESKTOP: string;
 		OS: string;
 		Path: string;
@@ -212,6 +245,7 @@ declare module '$env/dynamic/private' {
 		TEMP: string;
 		TERM_PROGRAM: string;
 		TERM_PROGRAM_VERSION: string;
+		TESSDATA_PREFIX: string;
 		TMP: string;
 		USERDOMAIN: string;
 		USERDOMAIN_ROAMINGPROFILE: string;
@@ -222,9 +256,7 @@ declare module '$env/dynamic/private' {
 		VSCODE_GIT_ASKPASS_NODE: string;
 		VSCODE_GIT_IPC_HANDLE: string;
 		VSCODE_INJECTION: string;
-		VSCODE_NONCE: string;
 		windir: string;
-		ZES_ENABLE_SYSMAN: string;
 		[key: `PUBLIC_${string}`]: undefined;
 		[key: `${string}`]: string | undefined;
 	}
