@@ -7,8 +7,10 @@
 
 </script>
 
-<section id="contact" class="md:h-screen flex items-center justify-center bg-primary p-2">
-	
+<section id="contact" class="min-h-screen w-screen flex items-center justify-center bg-primary p-2">
+	<div class="flex md:min-h-[70vh]  sm:w-2/3 w-full border-secondary border-2">
 		<ContactInfo/>
 		<ContactForm />
+	</div>
+		
 </section>

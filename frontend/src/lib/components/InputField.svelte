@@ -12,7 +12,7 @@
     const onInput = e => (value = e.target.value);
 </script>
 
-<div class="w-max">
+<div class="w-full">
 	<label class={`block mb-2 text-sm font-joseph font-meduium text-${color}`} for={name}>
 		<slot />
 	</label>
@@ -20,7 +20,7 @@
 		use:typeAction
 		{value}
         on:input={onInput}
-		class={`bg-transparent px-3 py-2 mb-3 text-sm leading-tight font-joseph font-medium text-${color} border-b border-${color} rounded shadow appearance-none focus:outline-none focus:shadow-outline`}
+		class={`bg-transparent w-full px-3 py-2 mb-8 text-sm leading-tight font-joseph font-medium text-${color} border-b border-${color} rounded shadow appearance-none focus:outline-none focus:shadow-outline`}
 		id={name}
 		{placeholder}
 	/>

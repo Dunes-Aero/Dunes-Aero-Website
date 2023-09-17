@@ -73,7 +73,7 @@
 </script>
 
 <div
-	class="form-container md:h-[680px] xl:w-2/5 lg:w-3/5 w-11/12 bg-primary border-secondary border-2 p-5 round grid items-center"
+	class="form-container  lg:w-2/3 w-full bg-primary   p-5 round grid items-center"
 >
 	<form class="xl:w-5/6 w-full p-5" on:submit|preventDefault={submitHandler}>
 		<div
