@@ -4,6 +4,8 @@
 	import { goto } from '$app/navigation';
 	import Unvisible from '$lib/assets/images/unvisible.svg';
 	import Visible from '$lib/assets/images/visible.svg';
+	import signin from '$lib/assets/images/Signin.png'
+	import fireAlert from '$lib/utils/Alert.js';
 
 	let fullName = '';
 	let email = '';
@@ -14,6 +16,9 @@
 	let emailError = '';
 	let passwordMatchError = '';
 	let passwordMissingError = ''; // New error message
+
+
+	$: passType = ['password','password'];
 
 	function validateFullName() {
 		const fullNamePattern = /^[A-Za-z\s]+$/;
@@ -50,6 +55,10 @@
 			passwordMatchError = '';
 		}
 	}
+	function togglePassword(num) {
+		
+		passType[num] = passType[num] === 'password' ? 'text' : 'password';
+	}
 
 	function canSubmit() {
 		// Check if all fields are filled and there are no errors
@@ -79,6 +88,7 @@
 	}
 
 	async function postSignup() {
+		try {
 		const res = await fetch('http://127.0.0.1:8000/signup/', {
 			method: 'POST',
 			body: JSON.stringify({ email, password, fullName }),
@@ -92,7 +102,14 @@
 
 			localStorage.setItem('token', token);
 		}
+		else {
+			fireAlert(0, 'sign up');
+		}
 	}
+	catch(e){
+		fireAlert(0, 'sign up ');
+	}
+}
 </script>
 
 <section class="font-mono mx-auto bg-primary h-screen my-auto flex items-center">
@@ -104,8 +121,9 @@
 				<!-- Col -->
 				<div
 					class="w-full h-auto hidden lg:block lg:w-5/12 bg-cover rounded-l-lg border-secondary border-4"
-					style="background-image: url('$lib/assets/images/Signin.png')"
-				/>
+				>
+			<img src ={signin} alt='da-logo'>
+			</div>
 				<!-- Col -->
 				<div class="w-full lg:w-7/12 bg-secondary p-5 rounded-lg lg:rounded-l-none">
 					<h3 class="pt-4 pl-7 text-2xl font-tenor">Sign Up</h3>
@@ -160,6 +178,7 @@
 							{/if}
 						</div>
 						<div class="mb-4 md:flex md:justify-between">
+							{#if passType[0]==='password'}
 							<div class="mb-4 md:mr-2 md:mb-0 w-full md:w-1/2">
 								<!-- Adjust width here -->
 								<label
@@ -177,11 +196,13 @@
 										bind:value={password}
 										on:input={validatePasswordMatch}
 									/>
+									<!-- svelte-ignore a11y-click-events-have-key-events -->
 									<img
 										src={Visible}
 										alt="Password Visibility Toggle"
 										class="absolute top-1/3 right-3 transform -translate-y-1/2 cursor-pointer toggle-password"
 										id="eyeicon"
+										on:click={()=>{togglePassword(0)}}
 									/>
 								</div>
 								{#if fullNameError}
@@ -189,6 +210,42 @@
 									<p class="text-red-500 text-sm font-joseph">{passwordMissingError}</p>
 								{/if}
 							</div>
+
+							{:else}
+							<div class="mb-4 md:mr-2 md:mb-0 w-full md:w-1/2">
+								<!-- Adjust width here -->
+								<label
+									class="inline-block mb-2 text-sm font-joseph font-semibold text-gray-700"
+									for="password"
+								>
+									Password
+								</label>
+								<div class="relative">
+									<input
+										class="w-full px-3 py-2 mb-3 text-sm leading-tight font-joseph font-semibold text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+										id="password"
+										type="text"
+										placeholder="Password"
+										bind:value={password}
+										on:input={validatePasswordMatch}
+									/>
+									<!-- svelte-ignore a11y-click-events-have-key-events -->
+									<img
+										src={Unvisible}
+										alt="Password Visibility Toggle"
+										class="absolute top-1/3 right-3 transform -translate-y-1/2 cursor-pointer toggle-password"
+										id="eyeicon"
+										on:click={()=>{togglePassword(0)}}
+									/>
+								</div>
+								{#if fullNameError}
+									<!--!check this -->
+									<p class="text-red-500 text-sm font-joseph">{passwordMissingError}</p>
+								{/if}
+							</div>
+							{/if}
+							{#if passType[1]==='password'}
+							
 							<div class="md:ml-2 w-full md:w-1/2">
 								<!-- Adjust width here -->
 								<label
@@ -206,17 +263,52 @@
 										bind:value={c_password}
 										on:input={validatePasswordMatch}
 									/>
+									<!-- svelte-ignore a11y-click-events-have-key-events -->
 									<img
-										src="$lib/assets/images/visible.svg"
+										src={Visible}
 										alt="Password Visibility Toggle"
 										class="absolute top-1/3 right-3 transform -translate-y-1/2 cursor-pointer toggle-password"
 										id="c_eyeicon"
+										on:click={()=>{togglePassword(1)}}
 									/>
 								</div>
 								{#if passwordMatchError}
 									<p class="text-red-500 text-sm font-joseph">{passwordMatchError}</p>
 								{/if}
 							</div>
+							{:else}
+								
+							<div class="md:ml-2 w-full md:w-1/2">
+								<!-- Adjust width here -->
+								<label
+									class="inline-block mb-2 text-sm font-joseph font-semibold text-gray-700"
+									for="c_password"
+								>
+									Confirm Password
+								</label>
+								<div class="relative">
+									<input
+										class="w-full px-3 py-2 mb-3 text-sm leading-tight font-joseph font-semibold text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+										id="c_password"
+										type="text"
+										placeholder="Confirm Password"
+										bind:value={c_password}
+										on:input={validatePasswordMatch}
+									/>
+									<!-- svelte-ignore a11y-click-events-have-key-events -->
+									<img
+										src={Unvisible}
+										alt="Password Visibility Toggle"
+										class="absolute top-1/3 right-3 transform -translate-y-1/2 cursor-pointer toggle-password"
+										id="c_eyeicon"
+										on:click={()=>{togglePassword(1)}}
+									/>
+								</div>
+								{#if passwordMatchError}
+									<p class="text-red-500 text-sm font-joseph">{passwordMatchError}</p>
+								{/if}
+							</div>
+							{/if}
 						</div>
 
 						<div class="mb-4">
@@ -267,34 +359,7 @@
 	</div>
 
 	<script>
-		let unvisibleButton = '$lib/assets/images/unvisible.svg';
-		let visibleButton = '$lib/assets/images/visible.svg';
-
-		let eyeicon = document.getElementById('eyeicon');
-		let password = document.getElementById('password');
-
-		eyeicon.onclick = function () {
-			if (password.type === 'password') {
-				password.type = 'text';
-				eyeicon.src = unvisibleButton;
-			} else {
-				password.type = 'password';
-				eyeicon.src = visibleButton;
-			}
-		};
-
-		let c_eyeicon = document.getElementById('c_eyeicon');
-		let c_password = document.getElementById('c_password');
-
-		c_eyeicon.onclick = function () {
-			if (c_password.type === 'password') {
-				c_password.type = 'text';
-				c_eyeicon.src = unvisibleButton;
-			} else {
-				c_password.type = 'password';
-				c_eyeicon.src = visibleButton;
-			}
-		};
+		
 
 		// this code is for validation
 		// 	let fullName = '';

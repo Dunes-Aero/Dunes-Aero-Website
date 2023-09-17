@@ -18,13 +18,11 @@
 
 
 	<div class="main">
-		<Hero />
-
+		<Hero /> 
 		<Solutions />
 		<About />
 		<DunesAeroADV />
 		<Mission />
-
 		<Process />
 		<Partners />
 		<Contact />

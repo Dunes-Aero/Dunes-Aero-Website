@@ -6,23 +6,20 @@
 	import signin from '$lib/assets/images/Signin.png';
 	import unvisibleButton from '$lib/assets/images/unvisible.svg';
 	import visibleButton from '$lib/assets/images/visible.svg';
+	import fireAlert from '$lib/utils/Alert.js';
 
 	let email = '';
 	let password = '';
 	let emailError = '';
 	let passwordError = '';
+
 	let visibility = visibleButton;
 	let passType = 'password';
-	let eyeicon = document.getElementById('eyeicon');
 
 	function togglePassword() {
 		visibility = visibility === visibleButton ? unvisibleButton : visibleButton;
 		passType = passType === 'password' ? 'text' : 'password';
 	}
-
-	function typeAction(node) {
-        node.type = type;
-    }
 
 	function validateEmail() {
 		const email = document.getElementById('email').value;
@@ -62,6 +59,7 @@
 	}
 
 	async function postLogin() {
+		try {
 		const res = await fetch('http://127.0.0.1:8000/login/', {
 			method: 'POST',
 			body: JSON.stringify({ email, password }),
@@ -69,12 +67,16 @@
 				'content-type': 'application/json'
 			}
 		});
-		const data = await res.json();
-		if (data.status === 200) {
-			const token = data.data.access_token;
-			console.log('tooooooooken is ignup', token);
-
-			localStorage.setItem('token', token);
+	
+			const data = await res.json();
+			if (data.status === 200) {
+				const token = data.data.access_token;
+				localStorage.setItem('token', token);
+			} else {
+				fireAlert(0, 'login');
+			}
+		} catch (e) {
+			fireAlert(0, 'login');
 		}
 	}
 </script>
@@ -125,27 +127,27 @@
 							</label>
 
 							<div class="relative">
-								{#if passType==='password'}
-								<input
-									class="w-full px-3 py-2 mb-3 text-sm leading-tight font-joseph font-semibold text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-									id="password"
-									type='password'
-									name="password"
-									placeholder="Password"
-									bind:value={password}
-									on:input={validatePassword}
-								/>
+								{#if passType === 'password'}
+									<input
+										class="w-full px-3 py-2 mb-3 text-sm leading-tight font-joseph font-semibold text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+										id="password"
+										type="password"
+										name="password"
+										placeholder="Password"
+										bind:value={password}
+										on:input={validatePassword}
+									/>
 								{:else}
-								<input
-								class="w-full px-3 py-2 mb-3 text-sm leading-tight font-joseph font-semibold text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-								id="password"
-								type='text'
-								name="password"
-								placeholder="Password"
-								bind:value={password}
-								on:input={validatePassword}
-							/>
-							{/if}
+									<input
+										class="w-full px-3 py-2 mb-3 text-sm leading-tight font-joseph font-semibold text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+										id="password"
+										type="text"
+										name="password"
+										placeholder="Password"
+										bind:value={password}
+										on:input={validatePassword}
+									/>
+								{/if}
 
 								<!-- svelte-ignore a11y-click-events-have-key-events -->
 								<img

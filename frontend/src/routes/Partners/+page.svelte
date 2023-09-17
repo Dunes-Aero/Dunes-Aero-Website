@@ -4,24 +4,6 @@
 	import ResizeObserver from 'resize-observer-polyfill';
 	import { onMount } from 'svelte';
 	import { browser } from '$app/environment';
-
-	let boxEl;
-	let boxWidth;
-	// Add the observer when component mounts and cleanup after
-	onMount(() => {
-		const resizeObserver = new ResizeObserver((entries) => {
-			// We're only watching one element
-			const entry = entries.at(0);
-
-			//Get the block size
-			boxEl = entry.contentBoxSize[0].blockSize;
-		});
-
-		resizeObserver.observe(boxEl);
-
-		// This callback cleans up the observer
-		return () => resizeObserver.unobserve(boxEl);
-	});
 </script>
 
 {#if browser}
@@ -38,20 +20,28 @@
 				arrows={false}
 				swiping={false}
 				infinite={true}
-				bind:this={boxEl}
-			 
 			>
-				<div class=" flex sm:overflow-hidden  ">
-					<img src="src\lib\assets\images\GACA.svg" alt="logo" height="100" class="mx-8" width="250" />
-
-					<img src="src\lib\assets\images\KACST.svg" alt="logo" height="100" class="mx-8" width="250" />
-
-					<img src="src\lib\assets\images\MCIT.svg" alt="logo" height="100" class="mx-8" width="250" />
-
-					<img src="src\lib\assets\images\NTDP.svg" alt="logo" height="100" class="mx-8" width="250" />
-
-					<img src="src\lib\assets\images\SFCPD.svg" alt="logo" height="100" class="mx-8" width="250" />
-
+				<div class="flex w-full space-x-4 sm:space-x-0 justify-around px-4 sm:px-0 items-center">
+					<div class="flex-initial">
+						<img src="/src/lib/assets/images/MCIT.svg" alt="MCIT" />
+					</div>
+					<div class="flex-initial">
+						<img src="/src/lib/assets/images/GACA.svg" alt="GACA" />
+					</div>
+					<div class="flex-initial">
+						<img src="/src/lib/assets/images/KACST.svg" alt="KACST" />
+					</div>
+				</div>
+				<div class="flex w-full space-x-4 sm:space-x-0 justify-around px-4 sm:px-0 items-center">
+					<div class="flex-initial">
+						<img src="/src/lib/assets/images/NTDP.svg" alt="NTDP" />
+					</div>
+					<div class="flex-initial">
+						<img src="/src/lib/assets/images/GACA.svg" alt="GACA" />
+					</div>
+					<div class="flex-initial">
+						<img src="/src/lib/assets/images/SFCPD.svg" alt="SFCPD" />
+					</div>
 				</div>
 			</Carousel>
 		</div>
@@ -59,21 +49,11 @@
 {/if}
 
 <style>
-	.title {
-		margin-top: 40px;
-		text-align: center;
-		font-size: 28px;
-		font-weight: 600;
-	}
-
 	.slider {
 		height: 235px;
 		margin: auto;
 		overflow: hidden;
 		position: relative;
-
 		background-color: var(--color-secondary);
 	}
- 
- 
 </style>

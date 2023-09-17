@@ -1,5 +1,6 @@
 <script>
 	import Button from "$lib/components/Button.svelte";
+	import scrollIntoView from '$lib/utils/scrollIntoView.js';
 
 </script>
 
@@ -13,7 +14,9 @@
 			costs, and optimize workflows.
 		</h5>
 		<div class="mx-auto mb-5 text-center">
-			<Button color='tertiary' >Get in Touch!</Button>
+			<Button color='tertiary'  >
+				<a class="no-underline" href={`#contact`} on:click|preventDefault={scrollIntoView}>
+				Get in Touch!</a></Button>
 		</div>
 		<p class="text-secondary font-light mx-auto text-center lg:w-1/5 w-2/5">
 			Step into the future of business with Dunes Aero.
