@@ -8,7 +8,7 @@
 	let contact_items = [
 		{ info: '(+966) 54 556 3050', icon: phone , link:'tel:+966545563050'},
 		{ info: 'contact@dunesaero.com', icon: email , link:'mailto:contact@dunesaero.com'},
-		{ info: '132 Dartmouth Street Boston, Massachusetts 02156 United States', icon: location , link:'https://www.google.com/maps?cid=2015780826753847185'}
+		{ info: "Habib Ibn Zayd, Al Fayha'a, Jeddah 22246", icon: location , link:'https://www.google.com/maps?cid=2015780826753847185'}
 	];
 </script>
 

@@ -1,6 +1,7 @@
 <script>
 	import Title from './components/title.svelte';
 	import Desc from './components/aboutDescription.svelte';
+	import { fade } from 'svelte/transition'
 </script>
 
 <section
@@ -10,7 +11,7 @@
 	<div class="mb-4 text-center">
 		<Title pageTitle="About Us" elementHTML="h1" textColor="secondary" />
 	</div>
-	<div class="text-center">
+	<div class="text-center" transition:fade>
 		<Desc />
 	</div>
 </section>

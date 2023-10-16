@@ -1,80 +1,79 @@
-<!-- <script>
-  // Your mission data here
-  const missions = [
-    {
-      title: 'Mission 1',
-      description:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget scelerisque nisi. Sed ac interdum ipsum.',
-      imageUrl: 'src/lib/assets/images/visible.png',
-    },
-    // {
-    //   title: 'Mission 2',
-    //   description:
-    //     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget scelerisque nisi. Sed ac interdum ipsum.',
-    //   imageUrl: 'mission2.jpg',
-    // },
-    // Add more missions here
-  ];
+<script>
+	import { fade } from 'svelte/transition';
+  import { slide } from 'svelte/transition';
+	import { inview } from 'svelte-inview';
+	import { fly } from 'svelte/transition';
+	import { quintOut } from 'svelte/easing';
+	let isInView;
+	const options = {};
+	const handleChange = ({ detail }) => {
+		isInView = detail.inView;
+		console.log('detiiiii', isInView);
+	};
+
+	const missions = [
+		'Schedule Missions To a Specific Time.',
+		'Save Missions in Device.',
+		'Customize Mission for Each Drone.',
+		'Detailed Map View.',
+		'Flexible Waypoints and Commands',
+		'Autonomous AI-Powered Drone Flight'
+	];
 </script>
 
-<div class="container mx-auto p-8">
-  {#each missions as mission, i}
-    <div
-      class="{i === 0 ? 'flex' : 'flex flex-row-reverse'} items-center justify-between mb-12"
-    >
-      <div class="w-1/2">
-        <h2 class="text-3xl font-semibold">{mission.title}</h2>
-        <p class="text-lg mt-4">{mission.description}</p>
-      </div>
-      <div class="w-1/2">
-        <img
-          src={`./images/${mission.imageUrl}`}
-          alt={mission.title}
-          class="w-full rounded-lg shadow-lg"
-        />
-      </div>
-    </div>
-  {/each}
-</div>
-
-<style>
-  /* Add your custom styles here */
-</style> -->
-
-<!-- //----------------------------------- -->
-
-<section id ="products" class="bg-secondary dark:bg-gray-900">
+<section id="products" class="bg-primary dark:bg-gray-900">
 	<div
-		class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6"
+		class="gap-16 items-center py-8 px-4 mx-auto h-screen max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6"
 	>
-		<div class="font-joseph text-black sm:text-lg dark:text-gray-400">
-			<h2
-				class="mb-4 text-4xl tracking-tight font-joseph font-semibold text-gray-900 dark:text-white"
-			>
-				MISSION PALNNING
-			</h2>
-			<ul class="mb-4 list-disc text-2xl">
-				<li>Schedule Missions To a Specific Time.</li>
-				<li>Save Missions in Device.</li>
-				<li>Customize Mission for Each Drone.</li>
-				<li>Detailed Map View.</li>
-				<li>Flexible Waypoints and Commands</li>
-				<li>Autonomous AI-Powered Drone Flight</li>
-			</ul>
+		<div use:inview={options} on:inview_change={handleChange} class="font-joseph text-black sm:text-lg dark:text-gray-400">
+		
+		
+			
+      <h1 class={`mb-4  xl:text-4xl lg:text-3xl text-2xl tracking-tight  text-secondary-hover font-bold `}>		MISSION PLANNING</h1>
+			<div >
+				<ul class="mb-4 list-disc text-2xl text-secondary">
+					{#if isInView}
+						{#each missions as mission, i}
+							<li
+								transition:fly={{
+									delay: 300 + i * 120,
+									duration: 900,
+									x: 500,
+									y: 0,
+									opacity: 0,
+									easing: quintOut
+								}}
+							>
+								{mission}
+							</li>
+						{/each}
+					{/if}
+				</ul>
+			</div>
 
-      <!-- ? might need it to add some catchy phrases -->
+			<!-- ? might need it to add some catchy phrases -->
 			<!-- <p>
 				We are strategists, designers and developers. Innovators and problem solvers. Small enough
 				to be simple and quick.
 			</p> -->
 		</div>
 
-		<div class="flex flex-col items-center mt-8">
-			<img
+		<div use:inview={options} on:inview_change={handleChange} class="flex flex-col items-center mt-8">
+      {#if isInView}
+			<img 
+      transition:fly={{
+        delay: 300 ,
+        duration: 900,
+        x: 500,
+        y: 0,
+        opacity: 0,
+        easing: quintOut
+      }}
 				class="w-full h-full rounded-lg"
 				src="src/lib/assets/images/product.svg"
 				alt="office content 1"
 			/>
+      {/if}
 			<!-- <img class="mt-4 w-full lg:mt-10 rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png" alt="office content 2"> -->
 		</div>
 
