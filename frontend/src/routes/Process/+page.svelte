@@ -3,6 +3,17 @@
 	import Desc from './components/processDescription.svelte';
 	import Line from './components/line.svelte';
 	import Item from './components/item.svelte';
+	import AnimatedLine from './components/animatedLine.svelte';
+	import { quintOut } from 'svelte/easing';
+	import { fade, draw, fly } from 'svelte/transition';
+	import { expand } from '$lib/utils/custom-transitions.js';
+
+	import { inview } from 'svelte-inview';
+	let visible;
+	const options = {};
+	const handleChange = ({ detail }) => {
+		visible = detail.inView;
+	};
 </script>
 
 <!-- <section
@@ -76,7 +87,7 @@
 </section> -->
 <section
 	id="process"
-	class="container our-process relative w-full pb-16 mx-auto bg-hero bg-no-repeat bg-cover bg-center items-center"
+	class="container our-process relative w-full h-screen pb-16 mx-auto bg-hero bg-no-repeat bg-cover bg-center items-center"
 >
 	<div class="lg:p-6 p-10">
 		<Title pageTitle="Order Process" elementHTML="h1" textColor="secondary" class="lg:w-full" />
@@ -86,32 +97,37 @@
 		<Desc />
 	</div>
 
-	<div class="flex justify-center items-center">
-		<div class="flex flex-col items-center justify-start lg-screen">
-			<div class="item-one relative">
+	<div class="flex justify-center items-center" use:inview={options} on:inview_change={handleChange}>
+		{#if visible}
+		<div class="flex flex-col items-center justify-start lg-screen" >
+			
+			<div class="item-one relative" in:fade|global={{ delay: 500 + 650, duration: 800 }} >
+			
 				<Item
 					titleContent="Understanding your business needs"
 					textContent="Our team will collaborate with you to gather information about your specific requirements, use case, challenges, and objectives, preparing a comprehensive presentation showcasing recommended drone solutions."
 					textItems={['Understanding your', ' business needs']}
 					iconName="business"
+					
 				/>
 			</div>
-			<div class="item-two relative">
+			<div class="item-two relative" in:fade|global={{ delay: 500 + 1250, duration: 800 }}>
 				<Item
 					titleContent="Order fulfilling and support"
 					textContent="After finalizing the order, our team will handle hardware development, procurement, assembly, installation, software configuration, training programs, and technical support to ensure your drone solution success."
 					textItems={['Order fulfilling and', 'support']}
 					iconName="support"
+					
 				/>
 			</div>
 		</div>
 
-		<div class="flex flex-col justify-center items-center p-12">
-			<Line />
+		<div  class="flex flex-col justify-center items-center p-12">
+			<AnimatedLine />
 		</div>
 
 		<div class="flex flex-col items-center justify-center lg-screen">
-			<div class="item-three relative">
+			<div class="item-three relative" in:fade|global={{ delay: 500 + 350, duration: 800 }}>
 				<Item
 					titleContent="Contact Us"
 					textContent="get in touch with our team. You can reach us at
@@ -121,19 +137,23 @@
 					isRightLeft="yes"
 					textItems={['Contact Us']}
 					iconName="contact"
+					
 				/>
 			</div>
-			<div class="item-fourth relative">
+			<div class="item-fourth relative" 	in:fade|global={{ delay: 500 + 950, duration: 800 }}>
 				<Item
 					titleContent="Finalize your order"
 					textContent="After reviewing the presented solutions, we will prepare a detailed proposal outlining recommended products, services, and pricing structure, and after your acceptance, finalize the order."
 					isRightLeft="yes"
 					textItems={['Finalize your order']}
 					iconName="order"
+				
 				/>
 			</div>
 		</div>
+		{/if}
 	</div>
+	
 </section>
 
 <!-- <section
