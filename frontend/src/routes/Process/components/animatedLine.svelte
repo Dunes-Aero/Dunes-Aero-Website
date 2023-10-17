@@ -16,8 +16,8 @@
 	{#if visible}
 		<svg
 			width="30"
-			height="611"
-			viewBox="0 0 30 611"
+			height="520"
+			viewBox="0 0 30 520"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
 		>
@@ -27,26 +27,26 @@
 				x1="14"
 				y1="3"
 				x2="14"
-				y2="593"
+				y2="510"
 			/>
 			<circle
 				in:fade|global={{ delay: 800 + 950, duration: 800 }}
 				cx="14.5125"
-				cy="595.513"
+				cy="498"
 				r="14.5125"
 				fill="black"
 			/>
 			<circle
 				in:fade|global={{ delay: 800 + 650, duration: 800 }}
 				cx="14.5125"
-				cy="400.513"
+				cy="320"
 				r="14.5125"
 				fill="#636363"
 			/>
 			<circle
 				in:fade|global={{ delay: 800 + 350, duration: 800 }}
 				cx="14.5125"
-				cy="188.512"
+				cy="148.512"
 				r="14.5125"
 				fill="#A5A5A5"
 			/>
