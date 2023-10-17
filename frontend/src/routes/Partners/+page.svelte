@@ -7,7 +7,7 @@
 </script>
 
 {#if browser}
-	<section id="partners" class="partners">
+	<section id="partners" class="partners ">
 		<div class="slider">
 			<Subtitle>SUPPORTED BY</Subtitle>
 

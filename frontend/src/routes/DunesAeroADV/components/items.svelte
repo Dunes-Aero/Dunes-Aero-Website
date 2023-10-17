@@ -31,7 +31,7 @@
 	  <img src="src\lib\assets\images\right.svg" alt="">
 	</button> -->
 	{#if browser}
-		<div class=" bg-primary">
+		<div class=" bg-primary mt-10">
 			<Carousel particlesToShow={5} particlesToScroll={2}>
 				<img src="src\lib\assets\images\adv1.svg" class="product-thumb px-10 " height="250" width="250"  alt="1" />
 				

@@ -4,8 +4,8 @@
 	import Item from './components/items.svelte';
 </script>
 
-<section class="advantages lg:h-screen flex flex-col p-6">
-	<Title pageTitle="Dunes aero’s advantages" elementHTML="h1" textColor="secondary" />
+<section class="advantages  flex flex-col h-[90vh] pb-2 p-6">
+	<Title pageTitle="Why Dunes Aero?" elementHTML="h1" textColor="secondary" />
 	<div class="flex flex-col justify-center items-center 2xl:pt-10 pb-10 ">
 		<Desc />
 	</div>
