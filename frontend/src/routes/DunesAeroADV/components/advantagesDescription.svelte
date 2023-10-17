@@ -1,7 +1,7 @@
 <script></script>
 
-<div class="container">
-	<p class="text-desc text-center">
+<div class="container ">
+	<p class="text-desc  text-center">
 		Experience the power of Dunes Aero’s systems. As pioneers in the drone industry, we leverage
 		cutting-edge technology, unparalleled expertise, and a commitment to innovation to deliver
 		solutions that are tailored to your business needs. <br>

@@ -6,7 +6,7 @@
 
 <section class="advantages lg:h-screen flex flex-col p-6">
 	<Title pageTitle="Dunes aero’s advantages" elementHTML="h1" textColor="secondary" />
-	<div class="flex flex-col justify-center items-center 2xl:pt-10">
+	<div class="flex flex-col justify-center items-center 2xl:pt-10 pb-10 ">
 		<Desc />
 	</div>
     <div class="items 2xlg:pt-14">
