@@ -5,7 +5,7 @@
 </script>
 
 <section class="advantages  flex flex-col h-[90vh] pb-2 p-6">
-	<Title pageTitle="Why Dunes Aero?" elementHTML="h1" textColor="secondary" />
+	<h1 class="xl:text-5xl lg:text-4xl text-2xl text-center text-secondary   font-joseph	 my-10">Why Dunes Aero?</h1>
 	<div class="flex flex-col justify-center items-center 2xl:pt-10 pb-10 ">
 		<Desc />
 	</div>

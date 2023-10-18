@@ -13,7 +13,7 @@
 
 			<Carousel
 				autoplayDuration={10}
-				duration={5000}
+				duration={10000}
 				autoplay
 				timingFunction="linear"
 				dots={false}

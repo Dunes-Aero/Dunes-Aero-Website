@@ -9,7 +9,8 @@
 	class="main-page about sm:h-screen bg-cover bg-center bg-no-repeat flex flex-col justify-center"
 >
 	<div class="mb-4 text-center">
-		<Title pageTitle="About Us" elementHTML="h1" textColor="secondary" />
+	
+		<h1 class="xl:text-5xl lg:text-4xl text-2xl text-center text-secondary  my-10">About Us</h1>
 	</div>
 	<div class="text-center" transition:fade>
 		<Desc />

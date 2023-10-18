@@ -14,12 +14,14 @@
 			costs, and optimize workflows.
 		</h5>
 		<div class="mx-auto mb-5 text-center">
-			<Button color='tertiary'  >
-				<a class="no-underline" href={`#contact`} on:click|preventDefault={scrollIntoView}>
-				Get in Touch!</a></Button>
+			<button
+	class={`text-white bg-tertiary rounded-lg font-medium text-md px-5 py-2 mr-2 mb-2 hover:bg-tertiary-hover focus:ring-tertiary-hover focus:outline-none`}
+	>	<a class="no-underline" href={`#contact`} on:click|preventDefault={scrollIntoView}>
+		Get in Touch!</a></button>
+		
 		</div>
 		<p class="text-secondary font-light mx-auto text-center lg:w-1/5 w-2/5">
-			Step into the future of business with Dunes Aero.
+			Step into the future of drones with Dunes Aero.
 		</p>
 	</div>
 </div>

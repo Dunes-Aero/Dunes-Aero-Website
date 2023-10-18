@@ -1,16 +1,13 @@
 <script></script>
 
 <div class="container ">
-	<p class="text-desc  text-center">
-		Experience the power of Dunes Aero’s systems. As pioneers in the drone industry, we leverage
-		cutting-edge technology, unparalleled expertise, and a commitment to innovation to deliver
+	<h5 class="xl:text-3xl lg:text-2xl text-2xl text-center text-secondary font-joseph py-12 w-3/5 mx-auto">
+		We leverage the latest technologies with professional expertise to deliver
 		solutions that are tailored to your business needs. <br>
-         Here's why Dunes Aero should be your first
-		choice:
-	</p>
+	</h5>
 </div>
 
-<style>
+<!-- <style>
     @import '../../About/global.css';
 
     .text-desc {
@@ -29,4 +26,4 @@
 			margin: 40px 300px 0px; /* Adjust the font size for large screens */
 		}
 	}
-</style>
+</style> -->

@@ -39,7 +39,7 @@
 	
 	<div class="header bg-primary">   
 	
-		<h1 class="xl:text-5xl lg:text-4xl text-2xl text-center text-secondary   font-joseph	 my-10">Dunes aero Solutions</h1>
+		<h1 class="xl:text-5xl lg:text-4xl text-2xl text-center text-secondary   font-joseph	 my-10">Dunes Aero Solutions</h1>
 
     <h5 class="xl:text-3xl lg:text-2xl text-2xl text-center text-secondary font-joseph py-12 w-3/4 mx-auto">Tailoring the Sky to Your Needs. Beyond our specialized services and solutions, we offer bespoke drone solutions, innovatively designed to meet the unique demands of your business.</h5>
 
