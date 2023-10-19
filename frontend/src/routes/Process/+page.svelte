@@ -87,7 +87,7 @@
 </section> -->
 <section
 	id="process"
-	class="container our-process relative w-full h-screen  pb-20 mx-auto bg-hero bg-no-repeat bg-cover bg-center items-center"
+	class="container our-process relative w-full  min-h-screen  pb-20 mx-auto bg-hero bg-no-repeat bg-cover bg-center items-center"
 >
 	<div class="lg:p-6 p-10">
 		<Title pageTitle="Order Process" elementHTML="h1" textColor="secondary" class="lg:w-full" />

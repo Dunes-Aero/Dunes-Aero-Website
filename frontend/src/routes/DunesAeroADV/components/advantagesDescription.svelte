@@ -2,7 +2,7 @@
 
 <div class="container ">
 	<h5 class="xl:text-3xl lg:text-2xl text-2xl text-center text-secondary font-joseph py-12 w-3/5 mx-auto">
-		We leverage the latest technologies with professional expertise to deliver
+		We leverage the latest technologies with our professional team to deliver
 		solutions that are tailored to your business needs. <br>
 	</h5>
 </div>

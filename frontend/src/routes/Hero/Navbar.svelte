@@ -54,7 +54,7 @@
 				</ul>
 			</div>
 
-			<div class="float-right">
+			<!-- <div class="float-right">
 				<ul class="list-none hidden lg:flex flex-row gap-6 py-5 float-right">
 					
 					{#if token === null}
@@ -91,7 +91,7 @@
 
 						<li />{/if}
 				</ul>
-			</div>
+			</div> -->
 
 			<!--Navbar in smaller screens-->
 		{:else}
@@ -118,12 +118,12 @@
 								>
 							</li>
 						{/each}
-						<li class="text-2xl my-5 font-light text-secondary cursor-pointer hover:font-medium">
+						<!-- <li class="text-2xl my-5 font-light text-secondary cursor-pointer hover:font-medium">
 							Sign In
 						</li>
 						<li class="text-2xl my-5 font-light text-secondary cursor-pointer hover:font-medium">
 							Sign Up
-						</li>
+						</li> -->
 					</ul>
 				</div>
 			</div>
